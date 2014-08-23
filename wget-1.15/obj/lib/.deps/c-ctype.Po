@@ -1,0 +1,8 @@
+c-ctype.o: ../../lib/c-ctype.c ../src/config.h ../../lib/c-ctype.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/5.1/include/stdbool.h
+
+../src/config.h:
+
+../../lib/c-ctype.h:
+
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/5.1/include/stdbool.h:

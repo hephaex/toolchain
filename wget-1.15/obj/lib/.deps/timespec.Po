@@ -1,0 +1,48 @@
+timespec.o: ../../lib/timespec.c ../src/config.h ../../lib/timespec.h \
+  time.h /usr/include/time.h /usr/include/_types.h \
+  /usr/include/sys/_types.h /usr/include/sys/cdefs.h \
+  /usr/include/sys/_symbol_aliasing.h \
+  /usr/include/sys/_posix_availability.h /usr/include/machine/_types.h \
+  /usr/include/i386/_types.h /usr/include/_structs.h \
+  /usr/include/sys/_structs.h /usr/include/sys/_types/_timespec.h \
+  /usr/include/sys/_types/_null.h /usr/include/sys/_types/_clock_t.h \
+  /usr/include/sys/_types/_size_t.h /usr/include/sys/_types/_time_t.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/5.1/include/stddef.h
+
+../src/config.h:
+
+../../lib/timespec.h:
+
+time.h:
+
+/usr/include/time.h:
+
+/usr/include/_types.h:
+
+/usr/include/sys/_types.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/sys/_symbol_aliasing.h:
+
+/usr/include/sys/_posix_availability.h:
+
+/usr/include/machine/_types.h:
+
+/usr/include/i386/_types.h:
+
+/usr/include/_structs.h:
+
+/usr/include/sys/_structs.h:
+
+/usr/include/sys/_types/_timespec.h:
+
+/usr/include/sys/_types/_null.h:
+
+/usr/include/sys/_types/_clock_t.h:
+
+/usr/include/sys/_types/_size_t.h:
+
+/usr/include/sys/_types/_time_t.h:
+
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/5.1/include/stddef.h:

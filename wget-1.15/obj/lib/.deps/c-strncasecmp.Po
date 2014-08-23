@@ -1,0 +1,38 @@
+c-strncasecmp.o: ../../lib/c-strncasecmp.c ../src/config.h \
+  ../../lib/c-strcase.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/5.1/include/stddef.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/5.1/include/limits.h \
+  /usr/include/limits.h /usr/include/sys/cdefs.h \
+  /usr/include/sys/_symbol_aliasing.h \
+  /usr/include/sys/_posix_availability.h /usr/include/machine/limits.h \
+  /usr/include/i386/limits.h /usr/include/i386/_limits.h \
+  /usr/include/sys/syslimits.h ../../lib/c-ctype.h \
+  /Library/Developer/CommandLineTools/usr/bin/../lib/clang/5.1/include/stdbool.h
+
+../src/config.h:
+
+../../lib/c-strcase.h:
+
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/5.1/include/stddef.h:
+
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/5.1/include/limits.h:
+
+/usr/include/limits.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/sys/_symbol_aliasing.h:
+
+/usr/include/sys/_posix_availability.h:
+
+/usr/include/machine/limits.h:
+
+/usr/include/i386/limits.h:
+
+/usr/include/i386/_limits.h:
+
+/usr/include/sys/syslimits.h:
+
+../../lib/c-ctype.h:
+
+/Library/Developer/CommandLineTools/usr/bin/../lib/clang/5.1/include/stdbool.h:
