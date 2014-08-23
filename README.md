@@ -44,3 +44,15 @@ OSX opensource toolchain
  - /usr/local/bin/gcc --version
  - export PATH=/usr/local/bin:$PATH
  
+# cmake
+- download source code
+ - [cmake 3.0.0](http://www.cmake.org/files/v3.0/cmake-3.0.0.tar.gz)
+ - mv ~/Downloads/cmake-3.0.0.tar .
+ - tar xvf cmake-3.0.0.tar
+ - cd cmake-3.0.0
+ - mkdir obj
+ - cd obj
+ - ../bootstrap
+ - make -j4
+ - sudo make install
+ 
