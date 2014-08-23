@@ -56,3 +56,15 @@ OSX opensource toolchain
  - make -j4
  - sudo make install
  
+# wget
+- download source code
+ - [wget 1.15](http://ftp.gnu.org/gnu/wget/wget-1.15.tar.gz)
+ - mv ~/Downloads/wget-1.15.tar .
+ - tar xvf wget-1.15.tar
+ - cd wget-1.15
+ - mkdir obj
+ - cd obj
+ - ../configure --with-ssl=openssl
+ - make -j4
+ - sudo make install
+ 
