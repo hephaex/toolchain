@@ -68,3 +68,13 @@ OSX opensource toolchain
  - make -j4
  - sudo make install
  
+# autoconf
+- curl -OL http://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz
+- mv ~/Downloads/autoconf-2.69.tar .
+- tar xvf autoconf-2.69.tar 
+- cd autoconf-2.69
+- mkdir obj
+- cd obj
+- ../configure 
+- make -j4
+- sudo make install
