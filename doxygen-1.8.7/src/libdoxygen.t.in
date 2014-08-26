@@ -1,0 +1,216 @@
+#
+# 
+#
+# Copyright (C) 1997-2014 by Dimitri van Heesch.
+#
+# Permission to use, copy, modify, and distribute this software and its
+# documentation under the terms of the GNU General Public License is hereby 
+# granted. No representations are made about the suitability of this software 
+# for any purpose. It is provided "as is" without express or implied warranty.
+# See the GNU General Public License for more details.
+#
+# Documents produced by Doxygen are derivative works derived from the
+# input used in their production; they are not affected by this license.
+#!
+#! doxygen.t: This is a custom template for building Doxygen
+#!
+#$ IncludeTemplate("lib.t");
+
+LEX        = %%FLEX%%
+YACC       = %%BISON%%
+PYTHON     = %%PYTHON%%
+PERL       = %%PERL%%
+INCBUFSIZE = $(PYTHON) increasebuffer.py
+GENERATED_SRC = ../generated_src/doxygen
+GENERATED_OBJ = ../objects/doxygen
+
+#${
+sub GenerateDep {
+    my($obj,$src,@deps) = @_;
+    my(@objv,$srcv,$i,$s,$o,$d,$c);
+    @objv = split(/\s+/,$obj);
+    @srcv = split(/\s+/,$src);
+    for $i ( 0..$#objv ) {
+        $s = $srcv[$i];
+        $o = $objv[$i];
+        next if $s eq "";
+        $text .= $o . ": " . $s;
+        foreach my $dep (@deps) {
+	  $text .= " ${linebreak}\n\t\t" . $dep if $dep ne "";
+        }
+        if ( $moc_output{$s} ne "" ) {
+            $text .= " ${linebreak}\n\t\t" . $moc_output{$s};
+        }
+        $d = &make_depend($s);
+        $text .= " ${linebreak}\n\t\t" . $d if $d ne "";
+	$text .= "\n";
+    }
+    chop $text;
+}
+sub GenerateLex {
+    my($name,$caseOpt) = @_;
+    $text = "\t\$(LEX) ";
+    if ($caseOpt) {
+        $text .= "-i ";
+    }
+    $text .= "-P".$name."YY -t ".$name.".l | \$(INCBUFSIZE) > \$(GENERATED_SRC)/".$name.".cpp";
+}
+#$} 
+
+####################
+
+#$ GenerateDep("\$(GENERATED_SRC)/scanner.cpp","scanner.l");
+#$ GenerateLex("scanner",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/code.cpp","code.l");
+#$ GenerateLex("code",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/pyscanner.cpp","pyscanner.l");
+#$ GenerateLex("pyscanner",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/pycode.cpp","pycode.l");
+#$ GenerateLex("pycode",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/fortranscanner.cpp","fortranscanner.l");
+#$ GenerateLex("fortranscanner",1);
+
+#$ GenerateDep("\$(GENERATED_SRC)/fortrancode.cpp","fortrancode.l");
+#$ GenerateLex("fortrancode",1);
+
+#$ GenerateDep("\$(GENERATED_SRC)/vhdlcode.cpp","vhdlcode.l");
+#$ GenerateLex("vhdlcode",1);
+
+#$ GenerateDep("\$(GENERATED_SRC)/tclscanner.cpp","tclscanner.l");
+#$ GenerateLex("tclscanner",1);
+
+#$ GenerateDep("\$(GENERATED_SRC)/pre.cpp","pre.l");
+#$ GenerateLex("pre",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/declinfo.cpp","declinfo.l");
+#$ GenerateLex("declinfo",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/defargs.cpp","defargs.l");
+#$ GenerateLex("defargs",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/doctokenizer.cpp","doctokenizer.l");
+#$ GenerateLex("doctokenizer",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/commentcnv.cpp","commentcnv.l");
+#$ GenerateLex("commentcnv",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/commentscan.cpp","commentscan.l");
+#$ GenerateLex("commentscan",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/constexp.cpp","constexp.l","\$(GENERATED_SRC)/ce_parse.h");
+#$ GenerateLex("constexp",0);
+
+#$ GenerateDep("\$(GENERATED_SRC)/ce_parse.cpp","constexp.y");
+	$(YACC) -l -p constexpYY constexp.y -o \$(GENERATED_SRC)/ce_parse.cpp 
+
+#$ GenerateDep("\$(GENERATED_SRC)/ce_parse.h","constexp.y");
+	$(YACC) -l -d -p ce_parsexpYY constexp.y -o \$(GENERATED_SRC)/ce_parse.c 
+	-rm $(GENERATED_SRC)/ce_parse.c
+
+#$ GenerateDep("\$(GENERATED_SRC)/vhdlscanner.cpp","vhdlscanner.l","\$(GENERATED_SRC)/vhdlparser.h");
+#$ GenerateLex("vhdlscanner",1);
+
+#$ GenerateDep("\$(GENERATED_SRC)/vhdlparser.cpp","vhdlparser.y");
+	$(YACC) -l -p vhdlscannerYY vhdlparser.y -o \$(GENERATED_SRC)/vhdlparser.cpp 	
+
+#$ GenerateDep("\$(GENERATED_SRC)/vhdlparser.h","vhdlparser.y");
+	$(YACC) -l -d -p vhdlscannerYY vhdlparser.y -o \$(GENERATED_SRC)/vhdlparser.c 
+	-rm $(GENERATED_SRC)/vhdlparser.c	
+	
+TO_C_CMD=$(PYTHON) to_c_cmd.py < $< > $@
+
+#$ GenerateDep("layout.cpp","\$(GENERATED_SRC)/layout_default.xml.h");
+
+#$ GenerateDep("cite.cpp","\$(GENERATED_SRC)/doxygen.bst.h","\$(GENERATED_SRC)/bib2xhtml.pl.h");
+
+#$ GenerateDep("ftvhelp.cpp","\$(GENERATED_SRC)/navtree.js.h","\$(GENERATED_SRC)/resize.js.h","\$(GENERATED_SRC)/navtree.css.h");
+
+#$ GenerateDep("htmlgen.cpp","\$(GENERATED_SRC)/header.html.h","\$(GENERATED_SRC)/footer.html.h","\$(GENERATED_SRC)/doxygen.css.h","\$(GENERATED_SRC)/search_functions.php.h","\$(GENERATED_SRC)/search_opensearch.php.h","\$(GENERATED_SRC)/search.css.h","\$(GENERATED_SRC)/jquery_p1.js.h","\$(GENERATED_SRC)/jquery_p2.js.h","\$(GENERATED_SRC)/jquery_p3.js.h","\$(GENERATED_SRC)/jquery_ui.js.h","\$(GENERATED_SRC)/jquery_fx.js.h","\$(GENERATED_SRC)/jquery_pt.js.h","\$(GENERATED_SRC)/svgpan.js.h","\$(GENERATED_SRC)/dynsections.js.h","\$(GENERATED_SRC)/extsearch.js.h");
+
+#$ GenerateDep("xmlgen.cpp","\$(GENERATED_SRC)/index.xsd.h","\$(GENERATED_SRC)/compound.xsd.h");
+
+#$ GenerateDep("latexgen.cpp","\$(GENERATED_SRC)/doxygen.sty.h");
+
+#$ GenerateDep("searchindex.cpp","\$(GENERATED_SRC)/search.js.h");
+
+$(GENERATED_SRC)/index.xsd.h: index.xsd
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/compound.xsd.h: compound.xsd
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/layout_default.xml.h: layout_default.xml
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/header.html.h: header.html
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/footer.html.h: footer.html
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/search_functions.php.h: search_functions.php
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/search_opensearch.php.h: search_opensearch.php
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/search.js.h: search.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/search.css.h: search.css
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/extsearch.js.h: extsearch.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/doxygen.css.h: doxygen.css
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/doxygen.sty.h: doxygen.sty
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/navtree.js.h: navtree.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/resize.js.h: resize.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/jquery_p1.js.h: jquery_p1.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/jquery_p2.js.h: jquery_p2.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/jquery_p3.js.h: jquery_p3.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/jquery_ui.js.h: jquery_ui.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/jquery_fx.js.h: jquery_fx.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/jquery_pt.js.h: jquery_pt.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/navtree.css.h: navtree.css
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/svgpan.js.h: svgpan.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/dynsections.js.h: dynsections.js
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/doxygen.bst.h: doxygen.bst
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/bib2xhtml.pl.h: bib2xhtml.pl
+	$(TO_C_CMD)
+
+$(GENERATED_SRC)/version.cpp: ../configure
+	$(PYTHON) version.py $(GENERATED_SRC)
