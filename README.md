@@ -78,3 +78,22 @@ OSX opensource toolchain
 - ../configure 
 - make -j4
 - sudo make install
+
+# emacs
+- download soruce code
+- [emacs 24.3](http://ftp.gnu.org/pub/gnu/emacs/emacs-24.3.tar.gz)
+- mv ~/Downloads/emacs-24.3.tar .
+- tar xvf emacs-24.3.tar
+- wget http://svn.sourceforge.jp/svnroot/macemacsjp/inline_patch/trunk/emacs-inline.patch
+- cd emacs-24.3
+- patch -p0 < ../emacs-inline.patch
+- mkdir obj
+- cd obj
+- ../configure --with-ns --without-x
+- make -j4
+- sudo make install
+- sudo rm /usr/bin/emacs
+- sudo rm -rf /usr/share/emacs
+- create an alias '.~/.bash_profile'
+- alias emacs="/usr/local/bin/emacs -nw"
+
