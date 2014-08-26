@@ -142,3 +142,34 @@ OSX opensource toolchain
 - ./configure
 - make -j4
 - sudo make install 
+
+## magit
+- wget https://github.com/downloads/magit/magit/magit-1.2.0.tar.gz
+- tar -xf magit-1.2.0.tar.gz
+- cd magit-1.2.0
+- make
+- sudo make install
+- (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/magit")
+- (require 'magit)
+
+- 실행방법
+ - M-x magit-status
+ - 수정할 부분에서 s를 누르면 add가 된다.
+ - modified 가 되면 c를 누르고 commit -m 을 입력한다.
+ - C-c C-c를 입력하면 push가 된다.
+
+- 기능 조작 방법
+|조작커맨드|기능|
+|i|.gitignore에 파일 추가|
+|k|물리 파일 지우기|
+|S| 모든 파일 add (git add -A)|
+|u|add 대상에서 빠지기|
+|I|로그를 보기|
+|L|자세한 로그를 보기|
+|v|커밋 취소|
+|F|git pull|
+|P|git push|
+|m|git merge|
+|t|tag만들기|
+
+- [사용자 메뉴얼](http://philjackson.github.com/magit/magit.html)
