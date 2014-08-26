@@ -173,3 +173,11 @@ OSX opensource toolchain
 |t|tag만들기|
 
 - [사용자 메뉴얼](http://philjackson.github.com/magit/magit.html)
+
+## node.js
+- source [node.js](http://nodejs.org/dist/v0.10.31/node-v0.10.31.tar.gz)
+- tar -zxvf node-v0.10.31.tar.gz
+- cd node-v0.10.31
+- ./configure
+- make
+- sudo make install
