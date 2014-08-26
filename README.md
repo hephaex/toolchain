@@ -126,3 +126,11 @@ OSX opensource toolchain
 - make -j4
 - sudo make install
 
+
+## doxygen
+- source code [doxygen-1.8.7](http://ftp.stack.nl/pub/users/dimitri/doxygen-$
+- tar xvf doxygen-1.8.7
+- cd doxygen-1.8.7
+- configure
+- make -j4
+- sudo make install 
