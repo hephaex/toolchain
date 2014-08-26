@@ -1,0 +1,7 @@
+name="gv"
+version="2.38.0"
+description="OCaml bindings for graphviz"
+requires=""
+directory="^"
+archive(byte)="gv/gv.cma"
+archive(native)="gv/gv.cmxa"
