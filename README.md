@@ -107,3 +107,22 @@ OSX opensource toolchain
 - sudo make install
 - sudo rm /usr/bin/git
 
+## cscope
+- source code [cscope-15.8a](http://downloads.sourceforge.net/project/cscope/cscope/15.8a/cscope-15.8a.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fcscope%2Ffiles%2F&ts=1407129629&use_mirror=jaist)
+- mv ~/Download/cscope-15.8a.tar .
+- tar xvf cscope-15.8a.tar
+- cd cscope-15.8a
+- emacs src/constants.h
+
+```c
+#if (BSD || V9 ) && !__NetBSD__ && !__FreeBSD__
+```
+
+
+```c
+#if (BSD || V9 ) && !__NetBSD__ && !__FreeBSD__ && !__APPLE__
+```
+- ./configure
+- make -j4
+- sudo make install
+
