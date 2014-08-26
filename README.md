@@ -97,3 +97,13 @@ OSX opensource toolchain
 - create an alias '.~/.bash_profile'
 - alias emacs="/usr/local/bin/emacs -nw"
 
+## git
+- curl "https://www.kernel.org/pub/software/scm/git/git-2.0.4.tar.gz"
+- mv ~/Downloads/git-2.0.4.tar .
+- tar xvf git-2.0.4.tar
+- cd git-2.0.4
+- make configure
+- make -j4
+- sudo make install
+- sudo rm /usr/bin/git
+
