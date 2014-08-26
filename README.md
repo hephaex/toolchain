@@ -134,3 +134,11 @@ OSX opensource toolchain
 - configure
 - make -j4
 - sudo make install 
+
+## graphviz
+- source down [graphviz-2.38.0](http://www.graphviz.org/pub/graphviz/stable/$
+- tar xvf graphviz-2.38.0.tar
+- cd graphviz-2.38.0
+- ./configure
+- make -j4
+- sudo make install 
