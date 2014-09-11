@@ -189,3 +189,4 @@ OSX opensource toolchain
 - ./configure
 - make
 - sudo make install
+- sudo port -v selfupdate 
