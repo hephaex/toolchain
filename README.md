@@ -198,5 +198,14 @@ export PATH=$PORT:$PATH
 - source ~/.bash_profile
 
 ## git-review
+
+### failed
 - sudo easy_install pip
 - sudo pip install git-review
+
+### success from source
+- curl http://python-distribute.org/distribute_setup.py | sudo python
+- curl http://pypi.python.org/packages/source/g/git-review/git-review-1.24.tar.gz
+- tar zxvf git-review-1.24.tar.gz
+- cd git-review-1.24
+- sudo python setup.py install
