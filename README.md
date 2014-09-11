@@ -190,3 +190,9 @@ OSX opensource toolchain
 - make
 - sudo make install
 - sudo port -v selfupdate 
+- emacs ~/.bash_profile
+```
+export PORT=/opt/local/bin
+export PATH=$PORT:$PATH
+```
+- source ~/.bash_profile
