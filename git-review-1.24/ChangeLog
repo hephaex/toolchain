@@ -1,0 +1,355 @@
+CHANGES
+=======
+
+1.24
+----
+
+* Update homepage on PyPI
+* Update requirements to OpenStack's recommendations
+* Update the README to mention dependencies
+* Ensure username is set for all tests
+* Provide nicer user message for missing remote ref
+* Fix a typo in HACKING.rst
+* Ignore newline in bp/bug search in commit message
+* Restrict tests SSH auth to only the provided key
+* Disable proxies for tests that clone over http
+* Keep track of gerrit.war and golden_site versions
+* Fix typo in manpage s/gireview/gitreview/
+* Correct git review -l over http(s)
+* Topic: do not use '(detached' when detached
+* Use gerrit 2.8.5 instead of gerrit 2.6.1 in tests
+* Allow to specify default scheme in .gitreview file
+* Correct test_remote to support branchs without upstream
+* Remove parsing of --help and variants from our code
+* Python2: fixed UnicodeEncodeError
+* Skip invalid unicode in commit messages
+* Git review assumes the wrong ssh default port
+* Add http(s) protocol support to fetch_review and list_reviews
+* git-review.1 manpage fix for groff warnings
+* Fix parsing of SCP-style URLs, as these are valid in Git itself
+* "git review --setup" failed in Chinese locale
+* Bump hacking version in requirements
+* Reduce testr concurrnecy to 2
+* Add http(s) protocol support to set_hooks_commit_msg
+* Retrieve remote pushurl independently of user's locale
+* Add http(s) protocol support to test_remote
+* Verify if every attached file exists. Attach gerrig.config
+* Wrap exceptions that occur while running external process
+* Make Gerrit port and dir selection deterministic
+* Don't try to attach known_hosts if it's not there
+* Remove tox locale overrides
+* Fix the regex for setting topic
+* Add 2m timeout to tests
+* Attach Gerrit logs and known_hosts to failed tests
+* Change test gerrit ssh/http ports offset
+* Correct .Fl typo WRT --compare in the manual page
+* Ignore content of merge commits in reporting
+* Remove empty lines from git log output
+* Preserve merges when doing a rebase
+* Split git rev-parse --show-toplevel --git-dir on newline
+* Prefer .gitconfig username
+* Add more deterministic port selection for Gerrit
+* Document source location as git.openstack.org
+* Implement integration tests
+* Migrate to pbr
+* No longer check for new git-review releases
+
+1.23
+----
+
+* Wrap long lines
+* Pin hacking <0.6
+* Fix str(None) bug in port detection for hook setup
+* Fix pep8 deps for pyflakes version conflict
+* Expand multiple commit submission warning
+* Start development of 1.23
+
+1.22
+----
+
+* Provide usage help even if not in Git directory
+* Document defaultremote option & site/user configs
+* Allow per-site and per-user Gerrit defaults
+* Rename README.md to README.rst
+* Add venv testenv to tox.ini
+* Start development of 1.22
+
+1.21
+----
+
+* Align to OpenStack Hacking guidelines
+* Switch to flake8 from pep8
+* Allow per-user override of -R setting
+* git_config_get_value to return None
+* Use the local branch name as topic only if it is different from remote
+* Jeremy's manpath workaround breaks on Fedora
+* Compare different Patch Sets of Review
+* bug/1144800: Fix fatal: both revision and filename
+* Changed the text of the manpage to read "make it easier to comprehend Gerrit"
+* Don't call get_branch_name from assert_one_change
+* Add custom scripts features
+* Download specific Patch Set for Review
+* Make README.md ReST-friendly
+* Document gitreview.username
+* Better determine git directories
+* Don't fetch remote outside of rebase flow
+* Make it possible to cherry-pick a change
+* Check HEAD for extra commits instead of master
+* Check that the owner of a change has name defined
+* Topic name should be determined only for git push
+* Fix regression in repeated -d of the same change
+* Remove two else: blocks in main()
+* Update README for project move
+* Updated .gitreview location
+* Add mailing list to README
+* Use exceptions for list_reviews
+* Use exceptions for finish_review
+* Use exceptions for download_review
+* git-review(1): explain exit code ranges
+* Introduce base exception classes
+* Follow up I92b8637c: Fix Python 3 compatibility
+* Start development on 1.21
+* Remove reference to nonexistent requirements.txt
+
+1.20
+----
+
+* Avoid symlinks in the manpage path
+* Start development on 1.20
+
+1.19
+----
+
+* Revert "Introduce base exception classes"
+* Introduce base exception classes
+* Revert "Introduce base exception classes"
+* Revert "git-review(1): explain exit code ranges"
+* git-review(1): explain exit code ranges
+* Introduce base exception classes
+* Review list fields should have constant widths
+* manpage minor fixes with no output changes
+* Make setup.py less Linux-specific, more UNIX-compliant
+* Fixing ponctuation issue
+* Introduce CommandFailed exception for run_command
+* Use run_command_status *argv for ssh and scp
+* Refactor run_command to use *args, **kwargs
+* Get rid of "status" parameter in run_command
+* Due to gerrit bug regeneration of Change-Id must be nessecary
+* Don't rebase if the rebase doesn't conflict
+* Allow download of reviews from deleted accounts
+* Python 3 compatibility fixes
+* Add flag to push to refs/for/* for compatibilty
+* Add Python 3 support
+* Just fixing a small typo
+* Revert to 1.17
+* Configure a pep8 tox environment
+* Fixes typos and omission in failed review list
+* Allow download of reviews from deleted accounts
+* Start development on 1.19
+
+1.18
+----
+
+* Reversed the is:reviewable logic
+* Add ability to upload as work in progress
+* Filter list by is:reviewable by default
+* Due to gerrit bug regeneration of Change-Id must be nessecary
+* Don't rebase if the rebase doesn't conflict
+* Add open action
+* Add setup, list and download actions
+* Get current branch more concisely
+* fix missing username attribute in JSON stream
+* Rename submit action to upload
+* Fix no-change detection
+* Fix pep8 errors with 1.3.1
+* Add optional 'submit' positional argument
+* Add flag to push to refs/for/* for compatibilty
+* Add review scores to listing
+* Add Review, PatchSet and Hacker classes
+* Return a json result iterator from run_ssh_query()
+* Only list reviews for the current branch
+* Refactor out run_ssh_query() method
+* Add Python 3 support
+* Just fixing a small typo
+* Start dev on 1.18
+
+1.17
+----
+
+* Fixed hook installation for git with submodules
+* Update publish ref from refs/for to refs/publish
+* Run 'git remote update' from assert_one_change
+* Fix --list breakage in 3531a5bffd4f
+* Disable ssh X11 forwarding
+* Add support to list changes for review
+* Removed parsing out of team
+* fix -d not reusing already existing local branch
+* Start development on 1.17
+
+1.16
+----
+
+* Change draft ref to drafts
+* Fix scope error with configParser
+* Retrieve project & team name from fetch url
+* minor glitches in manpage
+* More resilient downloading
+* Override remote options: update manpage
+* Reformat manpage to mdoc(7)
+* Allow the user to override remote consequently
+* enhance man page
+* bump year references from 2011 to 2012
+* Start development on 1.16
+
+1.15
+----
+
+* Actually fix the urlparse bug in OSX
+* Start dev on 1.15
+
+1.14
+----
+
+* Fix an obvious breakage on OSX
+* Start dev on 1.14
+
+1.13
+----
+
+* Workaround for OSX urlparse issue
+* Include timing info in verbose output
+* Remove automagic requirements.txt
+* Use dirname instead of basename
+* accepts color.ui boolean values
+* Started 1.13
+
+1.12
+----
+
+* Provide easy flag for disabling update check
+* Freeze requirements for sdist packages
+* Start 1.12
+
+1.11
+----
+
+* Start 1.11
+
+1.10
+----
+
+* Added tox support for testing pep8
+* Added dependencies in requirements.txt
+* Add myself to AUTHORS
+* Add support for Gerrit 2.2.2's "Draft" status
+* Remove useless username parameter from add_remote
+* Make the default branch configurable
+* Break out the config reading into its own method
+* Don't hardcode 'master'
+* Fix typo (Ammending -> Amending)
+* Switch from 'git show' to 'git log'
+* Migrate to argparse. optparse is deprecated
+* Make readme links clickable
+* Add installation instructions to readme
+* Clarify instructions for contributing
+* Add .gitreview instructions to readme
+* Post 1.9 release version bump
+
+1.9
+---
+
+* Remove commit --amend from hook installation
+* Bump version post release
+
+1.8
+---
+
+* Prep for release of 1.8
+* Document the new command line options
+* Only pass plain strings to shlex.split
+* Add --finish option to git-review
+* Remove the commands module and use subprocess
+* Add workaround for broken urlparse
+* Install hook via scp rather than http
+* Use specified remote for getting commit hook
+* Fix bug 901030
+
+1.7
+---
+
+* Use fetch/checkout instead of pull
+* Only use color on systems that support it
+* Create .git/hooks directory if not present
+* Version bump post release
+
+1.6
+---
+
+* Check git config for default username
+* Handle usernames better in remote setup
+* Added Saggi to AUTHORS file. Thanks Saggi!
+* Spruced up the README just a bit
+* Show branches and tags when showing git log
+* Better handling of the color git configuration
+* commit_msg declared but never used
+* In detached head, use the target branch as topic
+* Always show the list of outstanding commits
+* Fix multi-change confirmation testing
+* Force single-version-externally-managed
+* Removed old doc from MANIFEST.in
+* setup.py should point to launchpad project page
+* Check to ensure that only one change is submitted
+* Post release version bump
+
+1.5
+---
+
+* Oops. Left git-review.1 out of the MANIFEST.in
+
+1.4
+---
+
+* Replace sphinx manpage with manual one
+* Bump version after release
+
+1.3
+---
+
+* Clean up documentation; add --version
+* Bump version after release
+
+1.2
+---
+
+* Better guessing of username
+* Check .gitreview file in repo for location of gerrit
+* fixed problem downloading changes
+* Replace git fetch with git remote update
+* Add --setup command for a pro-active repo setup
+* Updated docs to describe setup
+* Wrap sphinx calls in a try/except block
+* Update version after release
+
+1.1
+---
+
+* Replace tuple with list to unconfuse setuptools
+* Added support for fixing existing gerrit remotes
+* Always run git fetch so that commits are available for rebase
+* Pull version in directly from git-review
+* Fix manpage installation for setup.py install
+* Add remote arg to git remote update
+* Install man pages
+* Added support for download command
+* Handle repos cloned from github git urls
+* Fix git push command
+* Bumped version after release to PyPI
+
+1.0
+---
+
+* Support openstack-ci github organization
+* Added the remote option and updated README
+* Bug fixes relating to first-time runs
+* Added support for updating
+* Ported rfc.sh to a standalone program
