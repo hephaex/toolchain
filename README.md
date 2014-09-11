@@ -181,3 +181,13 @@ OSX opensource toolchain
 - ./configure
 - make
 - sudo make install
+
+## MacPorts
+- source [MaxPorts-2.3.1](https://distfiles.macports.org/MacPorts/MacPorts-2.3.1.tar.bz2)
+- tar -zxvf MaxPorts-2.3.1.tar.bz2
+- cd MacPorts-2.3.1
+- mkdir obj
+- cd obj
+- ../configure
+- make
+- sudo make install
