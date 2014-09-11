@@ -196,3 +196,7 @@ export PORT=/opt/local/bin
 export PATH=$PORT:$PATH
 ```
 - source ~/.bash_profile
+
+## git-review
+- sudo easy_install pip
+- sudo pip install git-review
