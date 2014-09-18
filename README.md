@@ -228,7 +228,7 @@ export PATH=$PORT:$PATH
 - Move downloaded package to a directory of your choice :
 - mv ~/Downloads/gradle-2.1  ~/toolchain/
 - Edit your profile file ( vi ~/.profile)
-
+- brew install gradle
 ```
 #add Java Home to path
 export JAVA_HOME=$(/usr/libexec/java_home)
