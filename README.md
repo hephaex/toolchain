@@ -209,3 +209,5 @@ export PATH=$PORT:$PATH
 - tar zxvf git-review-1.24.tar.gz
 - cd git-review-1.24
 - sudo python setup.py install
+
+## vagrant
