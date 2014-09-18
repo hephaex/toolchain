@@ -211,7 +211,18 @@ export PATH=$PORT:$PATH
 - sudo python setup.py install
 
 ## vagrant
-
+- vagrant binary install from web.
+ - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5.dmg
+- virtualbox binary install from web.
+ - wget http://download.virtualbox.org/virtualbox/4.3.16/VirtualBox-4.3.16-95972-OSX.dmg
+- vagrant init centos-6-x64 http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210.box
+- vagrant up
+ - start virtual machine
+- vagrant ssh
+ - connect virtual machine
+- vagrant halt
+ - vagrant service stop
+ 
 ## gradle
 - wget https://services.gradle.org/distributions/gradle-2.1-src.zip
 - Move downloaded package to a directory of your choice :
