@@ -1,0 +1,83 @@
+configurations {
+    startScriptGenerator
+}
+
+dependencies {
+    compile project(':baseServices')
+    compile project(':core')
+    compile project(':cli')
+    compile project(':ui')
+    compile project(':toolingApi')
+    compile project(':native')
+
+    compile libraries.slf4j_api
+
+    testCompile libraries.groovy
+
+    startScriptGenerator project(':plugins')
+}
+
+useTestFixtures()
+
+integTestTasks.all {
+    if (isCiServer) {
+        maxParallelForks = Math.min(3, rootProject.maxParallelForks)
+    }
+}
+
+jar {
+    manifest.mainAttributes('Main-Class': "org.gradle.launcher.GradleMain")
+    doFirst {
+        jar.manifest.mainAttributes('Class-Path': "${project(':core').jar.archivePath.name} ${project(':baseServices').jar.archivePath.name}")
+    }
+}
+
+task startScripts(type: StartScriptGenerator) {
+    startScriptsDir = new File("$buildDir/startScripts")
+    classpath = configurations.startScriptGenerator
+    launcherJar = jar.outputs.files
+}
+
+class StartScriptGenerator extends DefaultTask {
+    File startScriptsDir
+
+    @InputFiles
+    FileCollection classpath
+
+    @InputFiles
+    FileCollection launcherJar
+
+    @OutputFile
+    File getShellScript() {
+        return new File(startScriptsDir, "gradle")
+    }
+
+    @OutputFile
+    File getBatchFile() {
+        return new File(startScriptsDir, "gradle.bat")
+    }
+
+    @TaskAction
+    def generate() {
+        logging.captureStandardOutput(LogLevel.INFO)
+        def generator = new org.gradle.api.internal.plugins.StartScriptGenerator()
+        generator.applicationName = 'Gradle'
+        generator.optsEnvironmentVar = 'GRADLE_OPTS'
+        generator.exitEnvironmentVar = 'GRADLE_EXIT_CONSOLE'
+        generator.mainClassName = 'org.gradle.launcher.GradleMain'
+        generator.scriptRelPath = 'bin/gradle'
+        generator.classpath = ["lib/${launcherJar.singleFile.name}" as String]
+        generator.appNameSystemProperty = 'org.gradle.appname'
+        generator.generateUnixScript(shellScript)
+        generator.generateWindowsScript(batchFile)
+    }
+}
+
+daemonIntegTest {
+    //those tests are always using the daemon, they use exclusive daemons and they are a part of a regular check-in build anyway.
+    //since they are using exclusive daemons they don't contribute to the daemonIntegTest stress/load test.
+    //excluding to avoid unnecessary re-running and stealing resources.
+    exclude "org/gradle/launcher/daemon/**/*"
+}
+
+useClassycle()

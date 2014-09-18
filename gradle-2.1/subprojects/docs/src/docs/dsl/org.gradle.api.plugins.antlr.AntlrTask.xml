@@ -1,0 +1,31 @@
+<section>
+    <section>
+        <title>Properties</title>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Default with <literal>antlr</literal> plugin</td>
+                </tr>
+            </thead>
+            <tr><td>antlrClasspath</td><td><literal>project.configurations.antlr</literal></td></tr>
+            <tr><td>outputDirectory</td><td>
+                <filename><replaceable>${project.buildDir}</replaceable>/generated-src/antlr/<replaceable>${sourceSet.name}</replaceable></filename></td></tr>
+            <tr><td>trace</td><td><literal>false</literal></td></tr>
+            <tr><td>traceLexer</td><td><literal>false</literal></td></tr>
+            <tr><td>traceParser</td><td><literal>false</literal></td></tr>
+            <tr><td>traceTreeWalker</td><td><literal>false</literal></td></tr>
+            <tr><td>source</td><td><literal><replaceable>sourceSet</replaceable>.antlr</literal></td></tr>
+        </table>
+    </section>
+    <section>
+        <title>Methods</title>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                </tr>
+            </thead>
+        </table>
+    </section>
+</section>

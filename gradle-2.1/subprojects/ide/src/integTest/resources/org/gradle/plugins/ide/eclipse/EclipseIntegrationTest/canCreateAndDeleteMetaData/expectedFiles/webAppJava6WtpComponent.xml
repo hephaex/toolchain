@@ -1,0 +1,7 @@
+<project-modules id="moduleCoreId" project-version="2.0">
+	<wb-module deploy-name="webAppJava6">
+		<property name="context-root" value="webAppJava6"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
+		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
+	</wb-module>
+</project-modules>

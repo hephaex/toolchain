@@ -1,0 +1,209 @@
+/*
+ * Copyright 2010 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import org.gradle.build.Install
+import org.gradle.build.BuildTypes
+
+defaultTasks 'assemble'
+apply plugin: 'java-base'
+archivesBaseName = 'gradle'
+
+extensions.buildTypes = new BuildTypes(project)
+
+buildTypes {
+    sanityCheck "classes", "doc:checkstyleApi", "codeQuality", "docs:check"
+
+    // The minimum to be run before check-in
+    preCommitBuild "doc:checkstyleApi", "docs:check", "codeQuality", "classes", "test"
+    quickCheck "doc:checkstyleApi", "docs:check", "codeQuality", "classes", "test"
+
+    // For testing pull requests
+    pullRequestValidation "doc:checkstyleApi", "docs:check", "codeQuality", "classes"
+
+    // A full (in-process) test
+    developerBuild "check"
+
+    // Used by the first phase of the build pipeline
+    quickTest "runtimeTests", "runtimeIntegTests"
+
+    // Used for builds to run all tests, but not necessarily on all platforms
+    fullTest "runtimeTests", "runtimeIntegTests", useIncomingDistributions: true, defaultIntegTestExecuter: "forking"
+
+    // Used for builds to test the code on certain platforms
+    platformTest "runtimeTests", "runtimeIntegTests", useIncomingDistributions: true, defaultIntegTestExecuter: "forking", testAllPlatforms: true
+
+    // Tests using the daemon mode
+    daemonTest "runtimeIntegTests", useIncomingDistributions: true, defaultIntegTestExecuter: "daemon"
+
+    // Run the integration tests using the parallel executer
+    parallelTest "runtimeIntegTests", useIncomingDistributions: true, defaultIntegTestExecuter: "parallel"
+
+    // Run the performance tests
+    performanceTest "performance:integTest", useIncomingDistributions: true
+
+    // Run the performance tests
+    localPerformanceTest "performance:integTest"
+
+    // Used for cross version tests on CI
+    crossVersionTest "crossVersionIntegTest", useIncomingDistributions: true
+
+    // Used to build production distros and smoke test them
+    packageBuild "verifyIsProductionBuildEnvironment", "clean", "buildDists", "distributions:integTest"
+
+    // Used to build production distros and smoke test them
+    promotionBuild "verifyIsProductionBuildEnvironment", "clean", "docs:check", "buildDists", "distributions:integTest", "uploadArchives"
+}
+
+ext {
+    jvm = org.gradle.internal.jvm.Jvm.current()
+    javaVersion = JavaVersion.current()
+    isCiServer = System.getenv().containsKey("TEAMCITY_VERSION")
+    isWindows = org.gradle.internal.os.OperatingSystem.current().windows
+
+    if (project.hasProperty("maxParallelForks")) {
+        project.maxParallelForks = Integer.valueOf(project.maxParallelForks, 10)
+    } else {
+        ext.maxParallelForks = Math.max(2, (int) (Runtime.runtime.availableProcessors() / 2))
+    }
+
+    if (project.hasProperty("useIncomingDistributions")) {
+        project.useIncomingDistributions = true
+    } else {
+        ext.useIncomingDistributions = false
+    }
+
+    internalProjects = subprojects.findAll { it.name.startsWith("internal") || it.name in ["integTest", "distributions"] }
+    groovyProjects = subprojects
+    publicGroovyProjects = groovyProjects - internalProjects
+    pluginProjects = [
+        'plugins', 'codeQuality', 'jetty', 'antlr', 'wrapper', 'osgi', 'maven',
+        'ide', 'announce', 'scala', 'sonar', 'signing', 'cpp', 'ear', 'javascript', 'buildComparison',
+        'diagnostics', 'reporting', 'publish', 'ivy', 'jacoco', 'buildInit', 'languageJvm', 'languageBase',
+        'plugin-development', 'pluginUse'
+    ].collect {
+        project(it)
+    }
+    publishedProjects = [
+            project(':core'),
+            project(':toolingApi'),
+            project(':wrapper'),
+            project(':baseServices'),
+            project(':baseServicesGroovy'),
+            project(':messaging'),
+            project(':resources')
+    ]
+}
+
+apply from: "gradle/buildReceipt.gradle"
+apply from: "gradle/incomingDistributions.gradle"
+apply from: "gradle/versioning.gradle"
+apply from: "gradle/dependencies.gradle"
+apply from: "gradle/wrapper.gradle"
+apply from: "gradle/idea.gradle"
+apply from: "gradle/eclipse.gradle"
+apply from: "gradle/classycle.gradle"
+apply from: "gradle/strictCompile.gradle"
+apply from: "gradle/noDependencyResolutionDuringConfiguration.gradle"
+apply from: "gradle/testSetup.gradle"
+apply from: "gradle/testGroupings.gradle"
+apply from: "gradle/analytics.gradle"
+
+allprojects {
+    group = 'org.gradle'
+
+    repositories {
+        maven { url 'https://repo.gradle.org/gradle/libs' }
+    }
+}
+
+subprojects {
+    version = rootProject.version
+
+    if (project in groovyProjects) {
+        apply from: "$rootDir/gradle/groovyProject.gradle"
+        apply from: "$rootDir/gradle/testWithUnknownOS.gradle"
+        check.dependsOn ":docs:checkstyleApi"
+        check.dependsOn "codeQuality"
+    }
+
+    if (project in publishedProjects) {
+        apply from: "$rootDir/gradle/publish.gradle"
+    }
+
+    apply from: "$rootDir/gradle/codeQuality.gradle"
+
+    if (isCiServer) {
+        reporting.baseDir "$rootProject.reporting.baseDir/${path.replaceFirst(':', '').replaceAll(':', '.')}"
+    }
+}
+
+configurations {
+    runtime {
+        visible = false
+    }
+    gradlePlugins {
+        visible = false
+    }
+    testRuntime {
+        extendsFrom runtime
+        extendsFrom gradlePlugins
+    }
+}
+
+dependencies {
+    runtime project(':launcher')
+    runtime project(':wrapper')
+    gradlePlugins pluginProjects
+    gradlePlugins project(':coreImpl')
+}
+
+task verifyIsProductionBuildEnvironment << {
+    assert javaVersion.java7 : "Must use a Java 7 compatible JVM to perform this build. Current JVM is ${jvm}"
+    def systemCharset = java.nio.charset.Charset.defaultCharset().name()
+    assert systemCharset == "UTF-8" : "Platform encoding must be UTF-8. Is currently $systemCharset. Set -Dfile.encoding=UTF-8."
+}
+
+task waitForDaemonsToDie {
+    if (!project.hasProperty("noWaitForDaemonsToDie")) {
+        if (isWindows && isCiServer && buildTypes.activeNames.contains("crossVersionTest")) {
+            gradle.startParameter.taskNames.add(0, it.path)
+        }
+        doLast {
+            def mins = 2
+            println "I'm waiting for $mins mins so that existing daemons can die with honour. It's a workaround until we fix it properly."
+            sleep mins * 60 * 1000
+        }
+    }
+}
+
+evaluationDependsOn ":distributions"
+
+task install(type: Install) {
+    description = 'Installs the minimal distribution into directory $gradle_installPath'
+    group = 'build'
+    with project(":distributions").binDistImage
+    installDirPropertyName = 'gradle_installPath'
+}
+
+task installAll(type: Install) {
+    description = 'Installs the full distribution into directory $gradle_installPath'
+    group = 'build'
+    with project(":distributions").allDistImage
+    installDirPropertyName = 'gradle_installPath'
+}
+
+
+apply from: "gradle/intTestImage.gradle"

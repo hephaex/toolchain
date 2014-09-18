@@ -1,0 +1,7 @@
+dependencies {
+    integTestCompile libraries.groovy
+    integTestCompile libraries.slf4j_api
+    integTestCompile libraries.commons_lang
+}
+
+useTestFixtures()

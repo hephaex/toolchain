@@ -1,0 +1,89 @@
+<!--
+  ~ Copyright 2010 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<chapter id='gradle_wrapper'>
+    <title>The Gradle Wrapper</title>
+    <para>
+        The Gradle Wrapper (henceforth referred to as the “wrapper”) is the preferred way of starting a Gradle build. The wrapper
+        is a batch script on Windows, and a shell script for other operating systems. When you start a Gradle build via the wrapper,
+        Gradle will be automatically downloaded and used to run the build. 
+    </para>
+    <para>
+        The wrapper is something you <emphasis>should</emphasis> check into version control. By distributing the wrapper with your project,
+        anyone can work with it without needing to install Gradle beforehand. Even better, users of the build are guaranteed to use the 
+        version of Gradle that the build was designed to work with. Of course, this is also great for 
+        <ulink url="http://en.wikipedia.org/wiki/Continuous_integration">continuous integration</ulink> servers (i.e. servers that regularly
+        build your project) as it requires no configuration on the server.
+    </para>
+    <para>
+        You install the wrapper into your project by adding and configuring a <apilink class="org.gradle.api.tasks.wrapper.Wrapper"/> 
+        task in your build script, and then executing it.
+    </para>
+    <sample id="wrapperSimple" dir="userguide/wrapper/simple" title="Wrapper task">
+        <sourcefile file="build.gradle"/>
+    </sample>
+    <para>
+        After such an execution you find the following new or updated files in your project directory 
+        (in case the default configuration of the wrapper task is used).
+    </para>
+    <sample id="wrapperSimple" dir="userguide/wrapper/simple" title="Wrapper generated files">
+        <layout after="wrapper">
+            gradlew
+            gradlew.bat
+            gradle/wrapper/gradle-wrapper.jar
+            gradle/wrapper/gradle-wrapper.properties
+        </layout>
+    </sample>
+    <para>
+        All of these files <emphasis>should</emphasis> be submitted to your version control system. This only needs to be done once. After
+        these files have been added to the project, the project should then be built with the added <command>gradlew</command> command.
+        The <command>gradlew</command> command can be used <emphasis>exactly</emphasis> the same way as the <command>gradle</command> command.
+    </para>
+    <para>If you want to switch to a new version of Gradle you don't need to rerun the wrapper task. It is good enough
+        to change the respective entry in the <literal>gradle-wrapper.properties</literal> file, but if you want to take
+        advantage of new functionality in the Gradle wrapper, then you would need to regenerate the wrapper files.
+    </para>
+    <section id='sec:configuration'>
+        <title>Configuration</title>
+        <para>If you run Gradle with <command>gradlew</command>, the wrapper checks if a Gradle distribution for the wrapper
+            is available. If so, it delegates to the <command>gradle</command>
+            command of this distribution with all the arguments passed originally to the <command>gradlew</command>
+            command.  If it didn't find a Gradle distribution, it will download it first.
+        </para>
+        <para>
+            When you configure the <literal>Wrapper</literal> task, you can specify the Gradle version you wish to use. The <command>gradlew</command>
+            command will download the appropriate distribution from the Gradle repository.
+            Alternatively, you can specify the download URL of the Gradle distribution. The <command>gradlew</command> command will use this URL to download
+            the distribution.
+            If you specified neither a Gradle version nor download URL, the <command>gradlew</command> command will download whichever version
+            of Gradle was used to generate the wrapper files.
+        </para>
+        <para>For the details on how to configure the wrapper, see the <apilink class="org.gradle.api.tasks.wrapper.Wrapper"/> class in the API documentation.
+        </para>
+        <para>If you don't want any download to happen when your project is built via <command>gradlew</command>, simply add the Gradle
+            distribution zip to your version control at the location specified by your wrapper configuration.
+            A relative URL is supported - you can specify a distribution file relative to the location of <literal>gradle-wrapper.properties</literal> file.
+        </para>
+        <para>If you build via the wrapper, any existing Gradle distribution installed on the machine is ignored.
+        </para>
+    </section>
+    <section id='sec:unix_file_permissions'>
+        <title>Unix file permissions</title>
+        <para>The Wrapper task adds appropriate file permissions to allow the execution of the <literal>gradlew</literal> *NIX command.
+            Subversion preserves this file permission. We are not sure how other version control systems deal with this.
+            What should always work is to execute “<literal>sh gradlew</literal>”.
+        </para>
+    </section>
+</chapter>
