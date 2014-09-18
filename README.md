@@ -211,3 +211,7 @@ export PATH=$PORT:$PATH
 - sudo python setup.py install
 
 ## vagrant
+
+## gradle
+- wget https://services.gradle.org/distributions/gradle-2.1-src.zip
+- 
