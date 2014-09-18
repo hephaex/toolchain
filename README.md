@@ -1,4 +1,4 @@
-toolchain
+Toolchain
 =========
 
 OSX opensource toolchain
@@ -214,4 +214,13 @@ export PATH=$PORT:$PATH
 
 ## gradle
 - wget https://services.gradle.org/distributions/gradle-2.1-src.zip
-- 
+- Move downloaded package to a directory of your choice :
+- mv ~/Downloads/gradle-2.1  ~/toolchain/
+- Edit your profile file ( vi ~/.profile)
+
+```
+#add Java Home to path
+export JAVA_HOME=$(/usr/libexec/java_home)
+export GRADLE_HOME="/Users/{yourAccountName}/toolchain/gradle-2.1"
+export PATH=${PATH}:${GRADLE_HOME}/bin
+```
