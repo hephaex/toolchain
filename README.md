@@ -235,3 +235,10 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export GRADLE_HOME="/Users/{yourAccountName}/toolchain/gradle-2.1"
 export PATH=${PATH}:${GRADLE_HOME}/bin
 ```
+
+## ruby
+- wget http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz
+- tar zxvf ruby-2.1.2.tar.gz
+- ./configure
+- make
+- sudo make install
