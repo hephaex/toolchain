@@ -242,3 +242,15 @@ export PATH=${PATH}:${GRADLE_HOME}/bin
 - ./configure
 - make
 - sudo make install
+
+## Homebrew
+- ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+- brew install bash-completion
+- source /usr/local/Library/Contributions/brew_bash_completion.sh
+- add .bash_profile
+
+```
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+```
