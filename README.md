@@ -277,3 +277,5 @@ $ rm -rf .git
 $ rm -rf ~/Library/Caches/Homebrew
 ```
 
+## gradle
+- brew install gradle
