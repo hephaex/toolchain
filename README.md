@@ -245,6 +245,10 @@ export PATH=${PATH}:${GRADLE_HOME}/bin
 
 ## Homebrew
 - ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+- brew doctor
+- brew update
+- brew -v
+
 - brew install bash-completion
 - source /usr/local/Library/Contributions/brew_bash_completion.sh
 - add .bash_profile
@@ -254,3 +258,22 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 ```
+
+* Package 찿기 (wget)
+ - brew search wget
+* Package 설치 (wget)
+ - brew install wget
+* Package 제거 (wget)
+ - brew remove wget
+* Brew uninstall
+
+```
+$ cd `brew --prefix`
+$ rm -rf Cellar
+$ brew prune
+$ rm `git ls-files`
+$ rmdir Library/Homebrew Library/Aliases Library/Formula Library/Contributions
+$ rm -rf .git
+$ rm -rf ~/Library/Caches/Homebrew
+```
+
