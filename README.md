@@ -277,5 +277,9 @@ $ rm -rf .git
 $ rm -rf ~/Library/Caches/Homebrew
 ```
 
+## tree
+- brew install tree
+
 ## gradle
 - brew install gradle
+
