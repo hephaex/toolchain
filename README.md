@@ -290,3 +290,21 @@ $ rm -rf ~/Library/Caches/Homebrew
 - ./configure
 - make
 - sudo make install
+
+## mdwiki
+- [mdwiki](https://github.com/Dynalon/mdwiki)
+- git clone https://github.com/Dynalon/mdwiki
+- cd mdwiki
+- Install node.js >= 0.10 and npm (if not included)
+- Install deps and build MDwiki (you need automake installed - if you are on Windows check the contents of the Makefile for the list of commands to run them manually):
+```
+make
+```
+- Find the mdwiki.html in the dist/ folder
+- Development
+
+- For development, use
+```
+grunt devel
+```
+- To get unminified source code compiled to dist/mdwiki-debug.html, as well as auto file watching and livereload support. Symlink the development mdwiki file into your webroot for testing.
