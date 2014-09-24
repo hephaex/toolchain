@@ -1,0 +1,15 @@
+node_modules
+bower_components/
+node_modules/
+dist/
+release/
+js/ts/d.ts
+ts_compiled/
+.tmp
+tmp/
+app/components
+md/
+typings/
+unittests/lib/
+.DS_Store
+.AppleDouble
