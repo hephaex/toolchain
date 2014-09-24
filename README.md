@@ -283,3 +283,10 @@ $ rm -rf ~/Library/Caches/Homebrew
 ## gradle
 - brew install gradle
 
+## readline6.4
+- [readline-6.3](ftp://ftp.cwru.edu/pub/bash/readline-6.3.tar.gz)
+- tar xvf readline-6.3.tar.gz
+- cd readline-6.3
+- ./configure
+- make
+- sudo make install
