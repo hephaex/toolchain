@@ -317,6 +317,14 @@ grunt devel
 - make
 - sudo make install
 
+## zlib-1.2.8
+- [source](http://zlib.net/zlib-1.2.8.tar.gz)
+- tar xvf zlib-1.2.8.tar.gz
+- cd zlib-1.2.8
+- ./configure
+- make
+- sudo make install
+
 ## openssh-6.6.p1
 - [source](http://ftp.jaist.ac.jp/pub/OpenBSD/OpenSSH/portable/openssh-6.6p1.tar.gz)
 - tar xvf openssh-6.6.p1.tar.gz
@@ -324,3 +332,4 @@ grunt devel
 - ./configure
 - make
 - sudo make install
+
