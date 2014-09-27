@@ -308,3 +308,11 @@ make
 grunt devel
 ```
 - To get unminified source code compiled to dist/mdwiki-debug.html, as well as auto file watching and livereload support. Symlink the development mdwiki file into your webroot for testing.
+
+## openssl-1.0.1i
+- [source](https://www.openssl.org/source/openssl-1.0.1i.tar.gz)
+- tar xvf openssl-1.0.1i.tar.gz
+- cd openssl-1.0.1i
+- ./config
+- make
+- sudo make install
