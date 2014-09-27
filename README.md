@@ -316,3 +316,11 @@ grunt devel
 - ./config
 - make
 - sudo make install
+
+## openssh-6.6.p1
+- [source](http://ftp.jaist.ac.jp/pub/OpenBSD/OpenSSH/portable/openssh-6.6p1.tar.gz)
+- tar xvf openssh-6.6.p1.tar.gz
+- cd openssh-6.6.p1
+- ./configure
+- make
+- sudo make install
