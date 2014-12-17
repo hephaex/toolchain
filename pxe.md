@@ -87,25 +87,25 @@ tftp-root=/var/lib/tftpboot
 Loaded plugins: fastestmirror
 Loading mirror speeds from cached hostfile
  * base: centos.tt.co.kr
-  * extras: centos.tt.co.kr
-   * updates: centos.tt.co.kr
-   Resolving Dependencies
-   --> Running transaction check
-   ---> Package syslinux.x86_64 0:4.05-8.el7 will be installed
-   --> Processing Dependency: mtools for package: syslinux-4.05-8.el7.x86_64
-   --> Running transaction check
-   ---> Package mtools.x86_64 0:4.0.18-5.el7 will be installed
-   --> Finished Dependency Resolution
+ * extras: centos.tt.co.kr
+ * updates: centos.tt.co.kr
+Resolving Dependencies
+ --> Running transaction check
+ ---> Package syslinux.x86_64 0:4.05-8.el7 will be installed
+ --> Processing Dependency: mtools for package: syslinux-4.05-8.el7.x86_64
+ --> Running transaction check
+ ---> Package mtools.x86_64 0:4.0.18-5.el7 will be installed
+ --> Finished Dependency Resolution
 
 Dependencies Resolved
 
 ================================================================================
  Package           Arch            Version                  Repository     Size
- ================================================================================
- Installing:
-  syslinux          x86_64          4.05-8.el7               base          1.0 M
-  Installing for dependencies:
-  mtools            x86_64          4.0.18-5.el7             base          203 k
+================================================================================
+Installing:
+ syslinux          x86_64          4.05-8.el7               base          1.0 M
+ Installing for dependencies:
+ mtools            x86_64          4.0.18-5.el7             base          203 k
 
 Transaction Summary
 ================================================================================
@@ -165,25 +165,25 @@ elf.c32        int18.com     mbr.bin             rosh.c32
 Loaded plugins: fastestmirror
 Loading mirror speeds from cached hostfile
  * base: centos.tt.co.kr
-  * extras: centos.tt.co.kr
-   * updates: centos.tt.co.kr
-   Resolving Dependencies
-   --> Running transaction check
-   ---> Package tftp-server.x86_64 0:5.2-11.el7 will be installed
-   --> Processing Dependency: xinetd for package: tftp-server-5.2-11.el7.x86_64
-   --> Running transaction check
-   ---> Package xinetd.x86_64 2:2.3.15-12.el7 will be installed
-   --> Finished Dependency Resolution
+ * extras: centos.tt.co.kr
+ * updates: centos.tt.co.kr
+Resolving Dependencies
+ --> Running transaction check
+ ---> Package tftp-server.x86_64 0:5.2-11.el7 will be installed
+ --> Processing Dependency: xinetd for package: tftp-server-5.2-11.el7.x86_64
+ --> Running transaction check
+ ---> Package xinetd.x86_64 2:2.3.15-12.el7 will be installed
+ --> Finished Dependency Resolution
 
 Dependencies Resolved
 
 ================================================================================
  Package             Arch           Version                  Repository    Size
- ================================================================================
- Installing:
+================================================================================
+Installing:
   tftp-server         x86_64         5.2-11.el7               base          44 k
-  Installing for dependencies:
-   xinetd              x86_64         2:2.3.15-12.el7          base         128 k
+Installing for dependencies:
+  xinetd              x86_64         2:2.3.15-12.el7          base         128 k
 
 Transaction Summary
 ================================================================================
@@ -300,3 +300,69 @@ Installed:
 
 Complete!
 ```
+
+* cp -r /mnt/* /var/ftp/pub/
+
+## Start DNSMASQ & VSFTPD server
+
+```
+[root@pxe mscho]# systemctl start dnsmasq
+[root@pxe mscho]# systemctl status dnsmasq
+dnsmasq.service - DNS caching server.
+   Loaded: loaded (/usr/lib/systemd/system/dnsmasq.service; disabled)
+   Active: active (running) since Mon 2014-12-15 15:18:37 KST; 10s ago
+ Main PID: 10929 (dnsmasq)
+   CGroup: /system.slice/dnsmasq.service
+           └─10929 /usr/sbin/dnsmasq -k
+
+Dec 15 15:18:37 pxe dnsmasq[10929]: compile time options: IPv6 GNU-getopt D...th
+Dec 15 15:18:37 pxe dnsmasq[10929]: warning: interface eno16777736 does not...st
+Dec 15 15:18:37 pxe dnsmasq-dhcp[10929]: DHCP, IP range 192.168.1.3 -- 192.1...h
+Dec 15 15:18:37 pxe dnsmasq-tftp[10929]: TFTP root is /var/lib/tftpboot
+Dec 15 15:18:37 pxe dnsmasq[10929]: using nameserver 8.8.4.4#53
+Dec 15 15:18:37 pxe dnsmasq[10929]: reading /etc/resolv.conf
+Dec 15 15:18:37 pxe dnsmasq[10929]: using nameserver 8.8.4.4#53
+Dec 15 15:18:37 pxe dnsmasq[10929]: using nameserver 8.8.8.8#53
+Dec 15 15:18:37 pxe dnsmasq[10929]: using nameserver 8.8.4.4#53
+Dec 15 15:18:37 pxe dnsmasq[10929]: read /etc/hosts - 2 addresses
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@pxe mscho]# systemctl start vsftpd
+[root@pxe mscho]# systemctl status vsftpd
+vsftpd.service - Vsftpd ftp daemon
+   Loaded: loaded (/usr/lib/systemd/system/vsftpd.service; disabled)
+   Active: active (running) since Mon 2014-12-15 15:19:04 KST; 9s ago
+  Process: 10933 ExecStart=/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf (code=exited, status=0/SUCCESS)
+ Main PID: 10934 (vsftpd)
+   CGroup: /system.slice/vsftpd.service
+           └─10934 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+
+Dec 15 15:19:04 pxe systemd[1]: Starting Vsftpd ftp daemon...
+Dec 15 15:19:04 pxe systemd[1]: Started Vsftpd ftp daemon.
+[root@pxe mscho]# systemctl enable dnsmasq
+ln -s '/usr/lib/systemd/system/dnsmasq.service' '/etc/systemd/system/multi-user.target.wants/dnsmasq.service'
+[root@pxe mscho]# systemctl enable vsftpd
+ln -s '/usr/lib/systemd/system/vsftpd.service' '/etc/systemd/system/multi-user.target.wants/vsftpd.service'
+```
+
+```
+[root@pxe mscho]# firewall-cmd --add-service=ftp --permanent
+success
+[root@pxe mscho]# firewall-cmd --add-service=dns --permanent  ## Port 53
+
+success
+[root@pxe mscho]# firewall-cmd --add-service=dhcp --permanent  ## Port 67
+success
+[root@pxe mscho]# firewall-cmd --add-port=69/udp --permanent  ## Port for TFTP
+success
+[root@pxe mscho]# firewall-cmd --add-port=4011/udp --permanent  ## Port for ProxyDHCP
+success
+[root@pxe mscho]# firewall-cmd --reload  ## Apply rules
+success
+```
+
+## iscsi setting
+* chekc blkid /dev/sda1
+ - blkid /dev/sda1
+ - dev/sda1: UUID="b96b91c8-ac41-4be2-af25-07754a776569" TYPE="xfs" PARTUUID="069af106-ca30-4854-87eb-78acc8181a89"
+* edit /etc/fstab
+* 
