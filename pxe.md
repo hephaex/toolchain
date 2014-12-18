@@ -248,6 +248,41 @@ label 4
 menu label ^4) Boot from local drive
 ```
 
+* another setting
+
+```
+DEFAULT vesamenu.c32
+MENU BACKGROUND centos7pxebg.png
+MENU COLOR BORDER 0 #ffffffff #00000000 std
+MENU COLOR TITLE 0 #ffffffff #00000000 std
+MENU COLOR SEL 0 #ffffffff #ff000000 std
+MENU TITLE CentOS 7 PXE Boot Menu
+PROMPT 0
+TIMEOUT 300
+ONTIMEOUT local
+#Local Boot
+LABEL local
+MENU LABEL Boot Local HDD
+LOCALBOOT 0
+#CentOS 7 x86_64
+LABEL centos764
+MENU LABEL CentOS 7 x86_64
+KERNEL images/centos/x86_64/7/vmlinuz
+APPEND initrd=images/centos/x86_64/7/initrd.img inst.repo=ftp://192.168.1.254/install/centos/x86_64/7
+# ks=ftp://192.168.1.254/install/centos/x86_64/7/ks/ks.cfg # add this to APPEND if you have a kickstart file
+#Fedora 20 x86_64
+LABEL fedora2064
+MENU LABEL Fedora 20 x86_64
+KERNEL mages/fedora/x86_64/20/vmlinuz
+APPEND initrd=images/fedora/x86_64/20/initrd.img inst.repo=ftp://192.168.1.254/install/fedora/x86_64/20
+# ks=ftp://192.168.1.254/install/fedora/x86_64/20/ks/ks.cfg # add this to APPEND if you have a kickstart file
+#Fedora 20 i386
+LABEL Fedora2032
+MENU LABEL Fedora 20 i386
+KERNEL images/fedora/i386/20/vmlinuz
+APPEND initrd=images/fedora/i386/20/initrd.img inst.repo=ftp://192.168.1.254/install/fedora/i386/20
+```
+
 ## Add CentOS7 Boot Images to PXE Server
 * wget http://mirrors.xservers.ro/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso
 * mount -o loop /home/mscho/CentOS-7.0-1406-x86_64-DVD.iso /mnt
@@ -264,12 +299,12 @@ updates                                                  | 3.4 kB     00:00
 updates/7/x86_64/primary_db                                | 5.4 MB   00:02
 Loading mirror speeds from cached hostfile
  * base: centos.tt.co.kr
-  * extras: centos.tt.co.kr
-   * updates: centos.tt.co.kr
-   Resolving Dependencies
-   --> Running transaction check
-   ---> Package vsftpd.x86_64 0:3.0.2-9.el7 will be installed
-   --> Finished Dependency Resolution
+ * extras: centos.tt.co.kr
+ * updates: centos.tt.co.kr
+Resolving Dependencies
+ --> Running transaction check
+ ---> Package vsftpd.x86_64 0:3.0.2-9.el7 will be installed
+ --> Finished Dependency Resolution
 
 Dependencies Resolved
 
@@ -293,7 +328,7 @@ Running transaction test
 Transaction test succeeded
 Running transaction
   Installing : vsftpd-3.0.2-9.el7.x86_64                                    1/1
-    Verifying  : vsftpd-3.0.2-9.el7.x86_64                                    1/1
+  Verifying  : vsftpd-3.0.2-9.el7.x86_64                                    1/1
 
 Installed:
   vsftpd.x86_64 0:3.0.2-9.el7
