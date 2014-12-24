@@ -400,4 +400,65 @@ success
  - blkid /dev/sda1
  - dev/sda1: UUID="b96b91c8-ac41-4be2-af25-07754a776569" TYPE="xfs" PARTUUID="069af106-ca30-4854-87eb-78acc8181a89"
 * edit /etc/fstab
-* 
+
+* install ipxe-bootimgs
+
+```
+[root@pxe mscho]# yum search ipxe
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.oasis.onnetcorp.com
+  * extras: mirror.oasis.onnetcorp.com
+   * updates: mirror.oasis.onnetcorp.com
+   ============================== N/S matched: ipxe ===============================
+   ipxe-bootimgs.noarch : Network boot loader images in bootable USB, CD, floppy
+                        : and GRUB formats
+						ipxe-roms.noarch : Network boot loader roms in .rom format
+						ipxe-roms-qemu.noarch : Network boot loader roms supported by QEMU, .rom format
+
+  Name and summary matches only, use "search all" for everything.
+  [root@pxe mscho]# yum -y install ipxe-bootimgs
+  Loaded plugins: fastestmirror
+  base                                                     | 3.6 kB     00:00
+  extras                                                   | 3.4 kB     00:00
+  updates                                                  | 3.4 kB     00:00
+  Loading mirror speeds from cached hostfile
+   * base: mirror.oasis.onnetcorp.com
+    * extras: mirror.oasis.onnetcorp.com
+	 * updates: mirror.oasis.onnetcorp.com
+	 Resolving Dependencies
+	 --> Running transaction check
+	 ---> Package ipxe-bootimgs.noarch 0:20130517-5.gitc4bce43.el7 will be installed
+	 --> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package            Arch        Version                         Repository
+                                                                            Size
+																			================================================================================
+																			Installing:
+																			 ipxe-bootimgs      noarch      20130517-5.gitc4bce43.el7       base      544 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 544 k
+Installed size: 2.0 M
+Downloading packages:
+ipxe-bootimgs-20130517-5.gitc4bce43.el7.noarch.rpm         | 544 kB   00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : ipxe-bootimgs-20130517-5.gitc4bce43.el7.noarch               1/1
+    Verifying  : ipxe-bootimgs-20130517-5.gitc4bce43.el7.noarch               1/1
+
+Installed:
+  ipxe-bootimgs.noarch 0:20130517-5.gitc4bce43.el7
+
+Complete!
+```
+
+* cp /usr/share/ipxe/undionly.kpxe /var/lib/tftpboot/
