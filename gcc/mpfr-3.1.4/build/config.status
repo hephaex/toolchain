@@ -431,7 +431,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/Users/mscho/Simon/91_toolchain/gcc/mpfr/build'
+ac_pwd='/Users/mscho/Simon/91_toolchain/gcc/mpfr-3.1.4/build'
 srcdir='..'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='../install-sh -c -d'
@@ -875,12 +875,12 @@ S["mkdir_p"]="$(MKDIR_P)"
 S["MKDIR_P"]="../install-sh -c -d"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]="strip"
-S["install_sh"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr/install-sh"
-S["MAKEINFO"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr/missing makeinfo"
-S["AUTOHEADER"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr/missing autoheader"
-S["AUTOMAKE"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr/missing automake-1.15"
-S["AUTOCONF"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr/missing autoconf"
-S["ACLOCAL"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr/missing aclocal-1.15"
+S["install_sh"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr-3.1.4/install-sh"
+S["MAKEINFO"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr-3.1.4/missing makeinfo"
+S["AUTOHEADER"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr-3.1.4/missing autoheader"
+S["AUTOMAKE"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr-3.1.4/missing automake-1.15"
+S["AUTOCONF"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr-3.1.4/missing autoconf"
+S["ACLOCAL"]="${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpfr-3.1.4/missing aclocal-1.15"
 S["VERSION"]="3.1.4"
 S["PACKAGE"]="mpfr"
 S["CYGPATH_W"]="echo"
