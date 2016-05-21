@@ -30,8 +30,8 @@ Kernel configured for up to 4 processors.
 Processor type: i486 (Intel 80486)
 Processors active: 0 1 2 3
 Primary memory available: 8.00 gigabytes
-Default processor set: 297 tasks, 1662 threads, 4 processors
-Load average: 3.50, Mach factor: 2.00
+Default processor set: 269 tasks, 1432 threads, 4 processors
+Load average: 1.00, Mach factor: 2.99
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
@@ -119,7 +119,7 @@ configure:3748: $? = 1
 configure:3768: checking whether the C compiler works
 configure:3790: gcc -std=gnu99 -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccIQyxTB.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//cc47FpzZ.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:3794: $? = 0
 configure:3842: result: yes
 configure:3845: checking for C compiler default output file name
@@ -127,13 +127,13 @@ configure:3847: result: a.out
 configure:3853: checking for suffix of executables
 configure:3860: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//cc8DXYJU.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccOowKag.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:3864: $? = 0
 configure:3886: result: 
 configure:3908: checking whether we are cross compiling
 configure:3916: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccRh81j9.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//cc8GoJMq.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:3920: $? = 0
 configure:3927: ./conftest
 configure:3931: $? = 0
@@ -293,7 +293,7 @@ gcc: warning: couldn't understand kern.osversion '15.5.0
 conftest.c:29:20: warning: ISO C forbids conversion of function pointer to object pointer type [-Wpedantic]
    {"nm_test_func", (void *) &nm_test_func},
                     ^
-ld: warning: ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccCyoSu2.o) was built for newer OSX version (10.11) than being linked (10.4)object file (conftstm.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//cc7YKvQU.o) was built for newer OSX version (10.11) than being linked (10.4)object file (conftstm.o) was built for newer OSX version (10.11) than being linked (10.4)
 
 configure:6688: $? = 0
 configure:6726: result: ok
@@ -328,7 +328,7 @@ configure:7792: result: yes
 configure:7795: checking for -exported_symbols_list linker flag
 configure:7815: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  -Wl,-exported_symbols_list,conftest.sym conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccEJX7fd.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//cc0qe4UD.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:7815: $? = 0
 configure:7825: result: yes
 configure:7828: checking for -force_load linker flag
@@ -392,7 +392,7 @@ gcc: warning: couldn't understand kern.osversion '15.5.0
 gcc: warning: couldn't understand kern.osversion '15.5.0
 configure:8163: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccecWM9t.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccFQ2CqM.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:8163: $? = 0
 configure:8163: ./conftest
 configure:8163: $? = 0
@@ -557,13 +557,13 @@ gcc: warning: couldn't understand kern.osversion '15.5.0
 conftest.c:38:6: warning: conflicting types for built-in function 'creal'
  char creal ();
       ^
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccUQj68P.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccl9ziEx.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:13580: $? = 0
 configure:13597: result: none required
 configure:13606: checking whether creal, cimag and I can be used
 configure:13623: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccDuYpCu.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccbfwZAI.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:13623: $? = 0
 configure:13625: result: yes
 configure:13648: checking for an ANSI C-conforming const
@@ -659,43 +659,43 @@ configure:13729: result: yes
 configure:13745: checking for gettimeofday
 configure:13745: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccJWGE9W.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccovFhYF.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:13745: $? = 0
 configure:13745: result: yes
 configure:13745: checking for localeconv
 configure:13745: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccY6AiwP.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccMJzs3i.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:13745: $? = 0
 configure:13745: result: yes
 configure:13745: checking for setlocale
 configure:13745: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccJIr296.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//cc1naIBG.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:13745: $? = 0
 configure:13745: result: yes
 configure:13757: checking for dup
 configure:13757: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccMiYfmQ.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//cc2oD0fv.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:13757: $? = 0
 configure:13757: result: yes
 configure:13757: checking for dup2
 configure:13757: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//cc7xGLo3.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccKyJCiW.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:13757: $? = 0
 configure:13757: result: yes
 configure:13771: checking for __gmpz_init in -lgmp
 configure:13796: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c -lgmp   >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccTsFLXw.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccSZXEsV.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:13796: $? = 0
 configure:13805: result: yes
 configure:13814: checking for MPFR
 configure:13829: gcc -std=gnu99 -o conftest -O2 -pedantic -fomit-frame-pointer -m64 -mtune=sandybridge -march=sandybridge -I/usr/local/gcc-6.1.0/include -I/usr/local/gcc-6.1.0/include  -L/usr/local/gcc-6.1.0/lib -L/usr/local/gcc-6.1.0/lib  conftest.c -lmpfr -lgmp  >&5
 gcc: warning: couldn't understand kern.osversion '15.5.0
-ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//cc6V8KWM.o) was built for newer OSX version (10.11) than being linked (10.4)
+ld: warning: object file (/var/folders/j3/jbfdwjt54xn1pvw24hx69hg00000gn/T//ccY7VFt4.o) was built for newer OSX version (10.11) than being linked (10.4)
 configure:13829: $? = 0
 configure:13830: result: yes
 configure:13848: checking for recent GMP
@@ -861,7 +861,7 @@ lt_cv_truncate_bin='/bin/dd bs=4096 count=1'
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/missing aclocal-1.15'
+ACLOCAL='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/missing aclocal-1.15'
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
@@ -872,9 +872,9 @@ AM_DEFAULT_VERBOSITY='1'
 AM_V='$(V)'
 AR='ar'
 AS='as'
-AUTOCONF='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/missing autoconf'
-AUTOHEADER='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/missing autoheader'
-AUTOMAKE='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/missing automake-1.15'
+AUTOCONF='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/missing autoconf'
+AUTOHEADER='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/missing autoheader'
+AUTOMAKE='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/missing automake-1.15'
 AWK='awk'
 CC='gcc -std=gnu99'
 CCDEPMODE='depmode=gcc3'
@@ -913,7 +913,7 @@ LT_SYS_LIBRARY_PATH=''
 MAINT='#'
 MAINTAINER_MODE_FALSE=''
 MAINTAINER_MODE_TRUE='#'
-MAKEINFO='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/missing makeinfo'
+MAKEINFO='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/missing makeinfo'
 MANIFEST_TOOL=':'
 MKDIR_P='../install-sh -c -d'
 MPC_LDFLAGS=''
@@ -972,7 +972,7 @@ host_vendor='apple'
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/install-sh'
+install_sh='${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'

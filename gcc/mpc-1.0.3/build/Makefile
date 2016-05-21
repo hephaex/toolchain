@@ -239,14 +239,14 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/missing aclocal-1.15
+ACLOCAL = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
 AS = as
-AUTOCONF = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/missing autoconf
-AUTOHEADER = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/missing autoheader
-AUTOMAKE = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/missing automake-1.15
+AUTOCONF = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/missing autoconf
+AUTOHEADER = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/missing autoheader
+AUTOMAKE = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/missing automake-1.15
 AWK = awk
 CC = gcc -std=gnu99
 CCDEPMODE = depmode=gcc3
@@ -284,7 +284,7 @@ LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
 MAINT = #
-MAKEINFO = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/missing makeinfo
+MAKEINFO = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = ../install-sh -c -d
 MPC_LDFLAGS = 
@@ -312,10 +312,10 @@ VALGRIND =
 
 # version number for distribution tarball
 VERSION = 1.0.3
-abs_builddir = /Users/mscho/Simon/91_toolchain/gcc/mpc/build
-abs_srcdir = /Users/mscho/Simon/91_toolchain/gcc/mpc/build/..
-abs_top_builddir = /Users/mscho/Simon/91_toolchain/gcc/mpc/build
-abs_top_srcdir = /Users/mscho/Simon/91_toolchain/gcc/mpc/build/..
+abs_builddir = /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/build
+abs_srcdir = /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/build/..
+abs_top_builddir = /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/build
+abs_top_srcdir = /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/build/..
 ac_ct_AR = ar
 ac_ct_CC = gcc -std=gnu99
 ac_ct_DUMPBIN = 
@@ -344,7 +344,7 @@ host_vendor = apple
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc/install-sh
+install_sh = ${SHELL} /Users/mscho/Simon/91_toolchain/gcc/mpc-1.0.3/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
