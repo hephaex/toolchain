@@ -363,7 +363,7 @@ nouveau 설정 업데이트
 > sudo update-initramfs -u
 
 다운 받은 NVIDIA 드라이버를 실행 파일로 바꾸고, 실행
-> chmod +x NVIDIA-Linux-*-346.35.run && sudo sh NVIDIA-Linux-*-346.35.run
+> chmod +x NVIDIA-Linux-*-367.44.run && sudo sh NVIDIA-Linux-*-367.44.run
 
 마무리 작업 
 > cd /etc/modprobe.d/ && sudo rm blacklist-nouveau.conf nouveau-kms.conf && sudo update-initramfs -u
