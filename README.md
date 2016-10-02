@@ -369,7 +369,8 @@ nouveau 설정 업데이트
 > cd /etc/modprobe.d/ && sudo rm blacklist-nouveau.conf nouveau-kms.conf && sudo update-initramfs -u
 
 # 드라이버 설치 확인
-
+ 
+ 
 > $ nvidia-smi 
 
 ```
