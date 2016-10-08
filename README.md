@@ -16,6 +16,33 @@ OSX opensource toolchain
  - isl-0.17.1.tar.bz2 1.6MB [isl-0.17.1.tar.bz2](http://isl.gforge.inria.fr/isl-0.17.1.tar.bz2)
 
 
+## gmp-6.1.1
+
+* Prepare GMP configurations
+
+```
+# mkdir build && cd build
+# ../configure --prefix=/usr/local \
+               --enable-cxx \
+			   --disable-static \
+			   --docdir=/usr/local/share/doc/gmp-6.1.1
+```
+
+* the meaning of configuration options
+
+> --enable-cxx
+>> This parameter enables C++ support
+
+> --docdir=/usr/share/doc/gmp-6.1.1
+>> This variable specifies the correct place for the documentation.
+
+* build
+
+```
+# make
+# make html
+```
+
 ## set up the source tree
 1. decompress gcc-4.9.1
  - tar -xjvf gcc-4.9.1.tar.bz2
