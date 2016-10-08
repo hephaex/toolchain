@@ -15,6 +15,7 @@ OSX opensource toolchain
  - mpfr-3.1.5.tar.bz2 1.2MB [mpfr-3.1.5.tar.bz2](http://www.mpfr.org/mpfr-current/mpfr-3.1.5.tar.bz2)
  - isl-0.17.1.tar.bz2 1.6MB [isl-0.17.1.tar.bz2](http://isl.gforge.inria.fr/isl-0.17.1.tar.bz2)
 
+
 ## set up the source tree
 1. decompress gcc-4.9.1
  - tar -xjvf gcc-4.9.1.tar.bz2
@@ -333,3 +334,60 @@ grunt devel
 - ./configure
 - make
 - sudo make install
+
+# Ubuntu에서 NVIDIA Driver를 설치하기
+
+* Download NVIDIA 드라이버
+NVIDIA-Linux-x86_64-367.44.run
+
+필요한 패키지 설치
+> sudo apt-get install dkms build-essential linux-headers-generic
+
+modprobe에서 설정 파일 추가
+
+> sudo vi /etc/modprobe.d/blacklist-nouveau.conf
+
+```
+blacklist nouveau
+blacklist lbm-nouveau
+options nouveau modeset=0
+alias nouveau off
+alias lvm-nouveau off
+```
+
+nouveau 설정 제거
+> echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
+
+nouveau 설정 업데이트
+> sudo update-initramfs -u
+
+다운 받은 NVIDIA 드라이버를 실행 파일로 바꾸고, 실행
+> chmod +x NVIDIA-Linux-*-367.44.run && sudo sh NVIDIA-Linux-*-367.44.run
+
+마무리 작업 
+> cd /etc/modprobe.d/ && sudo rm blacklist-nouveau.conf nouveau-kms.conf && sudo update-initramfs -u
+
+# 드라이버 설치 확인
+ 
+ 
+> $ nvidia-smi 
+
+```
+Tue Sep 20 22:01:45 2016       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 367.44                 Driver Version: 367.44                    |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 970     Off  | 0000:01:00.0     Off |                  N/A |
+|  0%   43C    P0    38W / 151W |      0MiB /  4028MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID  Type  Process name                               Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+```
