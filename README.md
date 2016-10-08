@@ -9,12 +9,11 @@ OSX opensource toolchain
  - xcode-select --install
 2. download source code
  - gcc required three other libraries: GMP, MPFR, MPC, isl
- - gcc-6.1.0.tar.bz2 86MB [gcc](http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-6.1.0/gcc-6.1.0.tar.bz2)
- - gmp-6.0.0a.tar.bz2 2.2MB [gmp](https://ftp.gnu.org/gnu/gmp/gmp-6.0.0a.tar.bz2)
- - mpc-1.0.3.tar.gz 0.6MB [mpc](http://www.multiprecision.org/index.php?prog=mpc&page=download) 
-    - ftp://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz
- - mpfr-3.1.4.tar.bz2 1.2MB [mpfp](http://www.mpfr.org/mpfr-current/mpfr-3.1.4.tar.bz2)
- - isl-0.16.1.tar.bz2 [isl](ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.16.1.tar.bz2)
+ - gcc-6.2.0.tar.bz2 99MB [gcc-6.2.0.bz2](http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-6.2.0/gcc-6.2.0.tar.bz2)
+ - gmp-6.1.1.tar.bz2 2.3MB [gmp-6.1.1.tar.bz2](https://ftp.gnu.org/gnu/gmp/gmp-6.1.1.tar.bz2)
+ - mpc-1.0.3.tar.gz 0.6MB [mpc-1.0.3.tar.gz](http://fossies.org/linux/misc/mpc-1.0.3.tar.gz)
+ - mpfr-3.1.5.tar.bz2 1.2MB [mpfr-3.1.5.tar.bz2](http://www.mpfr.org/mpfr-current/mpfr-3.1.5.tar.bz2)
+ - isl-0.17.1.tar.bz2 1.6MB [isl-0.17.1.tar.bz2](http://isl.gforge.inria.fr/isl-0.17.1.tar.bz2)
 
 ## set up the source tree
 1. decompress gcc-4.9.1
