@@ -7,6 +7,7 @@ OSX opensource toolchain
 1. xcode install
  - xcode compiler (cli base)
  - xcode-select --install
+ 
 2. download source code
  - gcc required three other libraries: GMP, MPFR, MPC, isl
  - gcc-6.2.0.tar.bz2 99MB [gcc-6.2.0.bz2](http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-6.2.0/gcc-6.2.0.tar.bz2)
