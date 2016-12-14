@@ -1,7 +1,8 @@
 # pxe setting
 * connect host
-* ssh key generate
- - ssh-keygen -t rsa
+
+## ssh key generate
+- ssh-keygen -t rsa
  
 * mv ~/.ssh/id_rsa authrized_keys
 
@@ -18,7 +19,7 @@
      - PasswordAuthentication no
  - systemctl restart sshd
  
-* update system
+### update system
  - yum -y update
 
 ## setting
