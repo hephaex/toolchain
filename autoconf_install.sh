@@ -8,7 +8,7 @@ BUILD_DIR=obj
 # Get the latest version of automake and libtool because they have no latest symbol link.
 AUTOCONF_VERSION=$(curl -fL http://ftpmirror.gnu.org/autoconf | grep -E "autoconf.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $4}' | sed 's/autoconf-//g' | sed 's/.tar.gz//g' | sort | tail -n 1)
 echo && echo "check latest version of aotomake-${AUTOCONF_VERSION}"
-AUTOMAKE_VERSION=$(curl -fL http://ftpmirror.gnu.org/automake | grep -E "automake.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $4}' | sed 's/automake-//g' | sed 's/.tar.gz//g' | sort | tail -n 1)
+AUTOMAKE_VERSION=$(curl -fL http://ftpmirror.gnu.org/automake | grep -E "automake.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $4}' | sed 's/automake-//g' | sed 's/.tar.gz//g' | sort -n -k 2 -t "." | tail -n 1)
 echo && echo "check latest version of aotomake-${AUTOMAKE_VERSION}"
 LIBTOOL_VERSION=$(curl -fL http://ftpmirror.gnu.org/libtool | grep -E "libtool.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $4}' | sed 's/libtool-//g' | sed 's/.tar.gz//g' | sort | tail -n 1)
 echo && echo "check latest version of libtool-${LIBTOOL_VERSION}"
