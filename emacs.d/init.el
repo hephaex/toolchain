@@ -1,8 +1,8 @@
 ;; hephaex emacs setting 4025
 ;; init.el
 
-(setq custom-dir (expand-file-name "custom" user-emacs-directory))
-(setq plugins-dir (expand-file-name "plugins" user-emacs-directory))
+;(setq custom-dir (expand-file-name "custom" user-emacs-directory))
+;(setq plugins-dir (expand-file-name "plugins" user-emacs-directory))
 ;(setq load-path
 ;      (cons (expand-file-name "/Users/mscho/Simon/llvm/utils/emacs") load-path))
 ;(require 'llvm-mode)
@@ -10,8 +10,8 @@
 ;      (cons (expand-file-name "/Users/mscho/Simon/llvm/utils/emacs") load-path))
 ;(require 'tablegen-mode)
 
-(add-to-list 'load-path custom-dir)
-(add-to-list 'load-path plugins-dir)
+;(add-to-list 'load-path custom-dir)
+;(add-to-list 'load-path plugins-dir)
 
 (setenv "PATH"
 	(concat
@@ -20,8 +20,8 @@
 	 (getenv "PATH")
 	 ))
 
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/magit")
-(require 'magit)
+;(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/magit")
+;(require 'magit)
 
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (replace-regexp-in-string
@@ -42,12 +42,12 @@
   '(add-to-list 'rng-schema-location-files "~/.schema/schemas.xml"))
 (global-set-key [C-return] 'completion-at-point)
 
-(when window-system (set-exec-path-from-shell-PATH))
+;(when window-system (set-exec-path-from-shell-PATH))
 ;(add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40/")
 ;(require 'cl)
 ;(require 'ecb)
-(require 'xcscope)
-(cscope-setup)
+;(require 'xcscope)
+;(cscope-setup)
 
 ;(defmacro when-linux (&rest body)
 ;  (list 'if (string-match "linux" (prin1-to-string system-type))
@@ -57,18 +57,18 @@
 ;  (list 'if (string-match "windows" (prin1-to-string system-type))
 ;	(cons 'progn body)))
 
-(defmacro when-version-24 (&rest body)
-  (list 'if (>= emacs-major-version 24)
-	(cons 'progn body)))
+;(defmacro when-version-24 (&rest body)
+;  (list 'if (>= emacs-major-version 24)
+;	(cons 'progn body)))
 
 ;;(require 'ms-hangul)
-(when enable-multibyte-characters
-  (set-language-environment "Korean")
-  (setq-default file-name-coding-system 'utf-8)
-  (setq default-input-method "korean-hangul")
-  (prefer-coding-system 'utf-8)
-  (set-default-coding-systems 'utf-8)
-  )
+;(when enable-multibyte-characters
+;  (set-language-environment "Korean")
+;  (setq-default file-name-coding-system 'utf-8)
+;  (setq default-input-method "korean-hangul")
+;  (prefer-coding-system 'utf-8)
+;  (set-default-coding-systems 'utf-8)
+;  )
 
 ;(when (eq system-type 'windows-nt)
 ;  (setq-default file-name-coding-system 'euc-kr)
@@ -101,25 +101,25 @@
   (interactive)
   (c-up-conditional-with-else -1))
 
-(defun ms-ui-load-theme (theme)
-  (interactive)
-  (add-to-list 'custom-theme-load-path plugins-dir)
-  (if (>= emacs-major-version 24)
+;(defun ms-ui-load-theme (theme)
+;  (interactive)
+;  (add-to-list 'custom-theme-load-path plugins-dir)
+;  (if (>= emacs-major-version 24)
       ;; see http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/
-      (load-theme theme t)
-    (error "Can't load the theme, mismatch with the emacs version.")))
+;      (load-theme theme t)
+;    (error "Can't load the theme, mismatch with the emacs version.")))
 
-(defun ms-ui-fullscreen ()
-  (interactive)
-  (set-frame-parameter nil 'fullscreen
-		       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
+;(defun ms-ui-fullscreen ()
+;  (interactive)
+;  (set-frame-parameter nil 'fullscreen
+;		       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
 
 (setq inhibit-splash-screen t)
 
 ;; load the color theme. ex) zenburn, tango-2, solarized-light,
 ;; solarized-dark, tron...
 ;(ms-ui-load-theme 'solarized-light)
-(ms-ui-load-theme 'zenburn)
+;(ms-ui-load-theme 'zenburn)
 
 ;; ;; Turn off early to avoid momentary display.
 ;; (mapc
@@ -229,9 +229,9 @@
 
 ;;(require 'ms-programming)
 ;; yasnippet
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
+;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+;(require 'yasnippet)
+;(yas-global-mode 1)
 
 ;(custon-set-variables
 ; '(file-column 80)
@@ -239,12 +239,12 @@
 ; '(c-basic-offset 2)
 ; '(indent-tabs-mode nil))
 
-(c-add-style "llvm.org"
-	     '((fill-column . 80)
-	       (c++-indent-level . 2)
-	       (c-basic-offset 2)
-	       (indent-table-mode . nil)
-	       (c-offset-alist . ((innamespace 0)))))
+;(c-add-style "llvm.org"
+;	     '((fill-column . 80)
+;	       (c++-indent-level . 2)
+;	       (c-basic-offset 2)
+;	       (indent-table-mode . nil)
+;	       (c-offset-alist . ((innamespace 0)))))
 (add-hook 'c-mode-hook
 	  (function
 	   (lambda nil
@@ -286,7 +286,7 @@
 ;;  (setq tab-width 8))
 
 ;; ANSI colors for the compilation mode
-(add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
+;(add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; java mode hook
 ;(add-hook 'java-mode-hook
@@ -296,27 +296,27 @@
 ;                  indent-tabs-mode nil)))
 
 ;; make-regexp
-(autoload 'make-regexp "make-regexp"
-  "Return a regexp to match a string item in STRINGS.")
-(autoload 'make-regexps "make-regexp"
-  "Return a regexp to REGEXPS.")
+;(autoload 'make-regexp "make-regexp"
+;  "Return a regexp to match a string item in STRINGS.")
+;(autoload 'make-regexps "make-regexp"
+;  "Return a regexp to REGEXPS.")
 
 ;; python
-(require 'python)
-(require 'auto-complete)
-(require 'python-mode)
-(autoload 'python-mode "python-mode" "Python editing mode" t)
-(add-to-list 'auto-mode-alist '("\\.py$" .python-mode))
-(add-to-list 'interpreter-mode-alist '("python" .python-mode))
+;(require 'python)
+;(require 'auto-complete)
+;(require 'python-mode)
+;(autoload 'python-mode "python-mode" "Python editing mode" t)
+;(add-to-list 'auto-mode-alist '("\\.py$" .python-mode))
+;(add-to-list 'interpreter-mode-alist '("python" .python-mode))
 
 ;; ipython setting
 ;;(require 'ipython)
 ;;(setq py
 
 ;; For auto-complete
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/ac-dict")
-(ac-config-default)
+;(require 'auto-complete-config)
+;(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/ac-dict")
+;(ac-config-default)
 
 ;; -----------------------------------------------------------------------------
 ;; hideshow for programming
@@ -396,27 +396,27 @@
 ;(add-hook 'emacs-lisp-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 ;; ediff
-(setq ediff-split-window-function 'split-window-vertically)
+;(setq ediff-split-window-function 'split-window-vertically)
 
 ;;(provide 'ms-programming)
 
 ;;(require 'ms-orgmode)
 ;; Set to the location of your Org files on your local system
-(setq org-directory "~/org")
-(setq org-agenda-files '("~/org"))
-(setq org-todo-keywords
-'((sequence "TODO(t)" "WAIT(w)" "|" "DOWN(d)" "SOMEDAY(s)")))
-(setq org-log-done 'time)
+;(setq org-directory "~/org")
+;(setq org-agenda-files '("~/org"))
+;(setq org-todo-keywords
+;'((sequence "TODO(t)" "WAIT(w)" "|" "DOWN(d)" "SOMEDAY(s)")))
+;(setq org-log-done 'time)
 ;
 ;; Set to the name of the file where new notes will be stored
-(setq org-mobile-inbox-for-pull (expand-file-name "inbox.org" org-directory))
-(setq org-mobile-files '("~/org/todo.org"))
+;(setq org-mobile-inbox-for-pull (expand-file-name "inbox.org" org-directory))
+;(setq org-mobile-files '("~/org/todo.org"))
 
 ;; Set to <your Dropbox root directory>/MobileOrg.
-(setq org-mobile-agenda-files '("~/org/todo.org"
-				"~/org/study.org"
-				"~/org/travels.org"))
-(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+;(setq org-mobile-agenda-files '("~/org/todo.org"
+;				"~/org/study.org"
+;				"~/org/travels.org"))
+;(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
@@ -424,8 +424,8 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 ;; Calendar setting
-(require 'calendar)		      ; it's built-in.
-(calendar-set-date-style 'iso)	      ; set the "year/month/day" style
+;(require 'calendar)		      ; it's built-in.
+;(calendar-set-date-style 'iso)	      ; set the "year/month/day" style
 
 ;;(provide 'ms-orgmode)
 
@@ -454,20 +454,20 @@
 ;; orgernizer org-mode
 ;; -----------------------------------------------------------------------------
 ;; Set to the location of your Org files on your local system
-(setq org-directory "~/Document/org")
-(setq org-agenda-files '("~/Document/org"))
-(setq org-todo-keywords
-'((sequence "TODO(t)" "WAIT(w)" "|" "DOWN(d)" "SOMEDAY(s)")))
-(setq org-log-done 'time)
+;(setq org-directory "~/Document/org")
+;(setq org-agenda-files '("~/Document/org"))
+;(setq org-todo-keywords
+;'((sequence "TODO(t)" "WAIT(w)" "|" "DOWN(d)" "SOMEDAY(s)")))
+;(setq org-log-done 'time)
 ;
 ;; Set to the name of the file where new notes will be stored
-(setq org-mobile-inbox-for-pull (expand-file-name "inbox.org" org-directory))
-(setq org-mobile-files '("~/Document/org/todo.org"))
+;(setq org-mobile-inbox-for-pull (expand-file-name "inbox.org" org-directory))
+;(setq org-mobile-files '("~/Document/org/todo.org"))
 
 ;; Set to <your Dropbox root directory>/MobileOrg.
-(setq org-mobile-agenda-files '("~/Document/org/todo.org"
-				"~/Document/org/study.org"
-				"~/Document/org/travels.org"))
+;(setq org-mobile-agenda-files '("~/Document/org/todo.org"
+;				"~/Document/org/study.org"
+;				"~/Document/org/travels.org"))
 ;;(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 (global-set-key "\C-cl" 'org-store-link)
@@ -476,8 +476,8 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 ;; Calendar setting
-(require 'calendar)		      ; it's built-in.
-(calendar-set-date-style 'iso)	      ; set the "year/month/day" style
+;(require 'calendar)		      ; it's built-in.
+;(calendar-set-date-style 'iso)	      ; set the "year/month/day" style
 
 ;; deft - http://jblevins.org/projects/deft/
 ;(when (ms-use-package 'deft)
@@ -490,12 +490,12 @@
 ;(provide 'ms-writing)
 
 ;; key setting
-(when (eq system-type 'darwin) ;; mac specific settings
-  (setq mac-options-modifier 'meta)
+;(when (eq system-type 'darwin) ;; mac specific settings
+;  (setq mac-options-modifier 'meta)
 ;;  (setq mac-option-modifier 'alt)
 ;;  (setq mac-command-modifier 'meta)
-  (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
-  )
+;  (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
+;  )
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\M-\," 'pop-tag-mark)  ; 
 (global-set-key [\M-right] 'call-last-kbd-macro)
@@ -507,9 +507,9 @@
 (global-set-key (kbd "C-c t") 'visit-term-buffer)
 (global-set-key [f11] 'ms-ui-fullscreen)
 
-(if (not (getenv "TERM_PROGRAM"))
-     (setenv "PATH"
-            (shell-command-to-string "source $HOME/.bash_profile &amp;&amp; printf $PATH")))
+;(if (not (getenv "TERM_PROGRAM"))
+;     (setenv "PATH"
+;            (shell-command-to-string "source $HOME/.bash_profile &amp;&amp; printf $PATH")))
 
 ;;(custom-set-faces
 ;; custom-set-faces was added by Custom.
