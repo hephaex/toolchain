@@ -18,6 +18,9 @@ OSX opensource toolchain
 ## openssl-1.0.1i
 - ./openssl.sh
 
+## ruby
+- ./ruby.sh
+
 ## vagrant
 - vagrant binary install from web.
  - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5.dmg
@@ -191,12 +194,6 @@ export GRADLE_HOME="/Users/{yourAccountName}/toolchain/gradle-2.1"
 export PATH=${PATH}:${GRADLE_HOME}/bin
 ```
 
-## ruby
-- wget http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz
-- tar zxvf ruby-2.1.2.tar.gz
-- ./configure
-- make
-- sudo make install
 
 ## readline6.4
 - [readline-6.3](ftp://ftp.cwru.edu/pub/bash/readline-6.3.tar.gz)
