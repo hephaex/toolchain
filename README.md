@@ -7,7 +7,32 @@ OSX opensource toolchain
 1. xcode install
  - xcode compiler (cli base)
  - xcode-select --install
+
+## autoconf & automake & libtool & texinfo
+- ./autoconf_install.sh
+
+## emacs 25.2.1 no-x-windows 
+- ./osx_emacs25-nox.sh 
+- alias emacs="/usr/local/bin/emacs -nw"
+
+## openssl-1.0.1i
+- ./openssl.sh
+
+## vagrant
+- vagrant binary install from web.
+ - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5.dmg
+- virtualbox binary install from web.
+ - wget http://download.virtualbox.org/virtualbox/4.3.16/VirtualBox-4.3.16-95972-OSX.dmg
+- vagrant init centos-6-x64 http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210.box
+- vagrant up
+ - start virtual machine
+- vagrant ssh
+ - connect virtual machine
+- vagrant halt
+ - vagrant service stop
  
+
+
 2. download source code
  - gcc required three other libraries: GMP, MPFR, MPC, isl
  - gcc-6.2.0.tar.bz2 99MB [gcc-6.2.0.bz2](http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-6.2.0/gcc-6.2.0.tar.bz2)
@@ -98,12 +123,6 @@ OSX opensource toolchain
  - make -j4
  - sudo make install
  
-# autoconf & automake & libtool & texinfo
-- ./autoconf_install.sh
-
-# emacs 25.2.1 no-x-windows 
-- ./osx_emacs25-nox.sh 
-- alias emacs="/usr/local/bin/emacs -nw"
 
 ## git
 - curl "https://www.kernel.org/pub/software/scm/git/git-2.0.4.tar.gz"
@@ -159,19 +178,6 @@ OSX opensource toolchain
 - make
 - sudo make install
 
-## vagrant
-- vagrant binary install from web.
- - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5.dmg
-- virtualbox binary install from web.
- - wget http://download.virtualbox.org/virtualbox/4.3.16/VirtualBox-4.3.16-95972-OSX.dmg
-- vagrant init centos-6-x64 http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210.box
-- vagrant up
- - start virtual machine
-- vagrant ssh
- - connect virtual machine
-- vagrant halt
- - vagrant service stop
- 
 ## gradle
 - wget https://services.gradle.org/distributions/gradle-2.1-src.zip
 - Move downloaded package to a directory of your choice :
@@ -218,13 +224,6 @@ grunt devel
 ```
 - To get unminified source code compiled to dist/mdwiki-debug.html, as well as auto file watching and livereload support. Symlink the development mdwiki file into your webroot for testing.
 
-## openssl-1.0.1i
-- [source](https://www.openssl.org/source/openssl-1.0.1i.tar.gz)
-- tar xvf openssl-1.0.1i.tar.gz
-- cd openssl-1.0.1i
-- ./config
-- make
-- sudo make install
 
 ## zlib-1.2.8
 - [source](http://zlib.net/zlib-1.2.8.tar.gz)
