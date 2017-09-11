@@ -21,7 +21,7 @@ curl -fL https://ftp.ruby-lang.org/pub/ruby/ruby-$RUBY.tar.gz | tar zxf -
 
 cd ./ruby-$RUBY
 # configure Makefile
-./configure
+./configure --with-openssl-dir=/usr/local/ssl
 
 # build
 echo "build ruby-${RUBY}"
