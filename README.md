@@ -5,36 +5,23 @@ OSX opensource toolchain
 
 ## prerequirement
 1. xcode install
- - xcode compiler (cli base)
- - xcode-select --install
+> $ xcode-select --install
 
 ## autoconf & automake & libtool & texinfo
-- ./autoconf_install.sh
+> $ ./autoconf_install.sh
 
 ## emacs 25.2.1 no-x-windows 
-- ./osx_emacs25-nox.sh 
-- alias emacs="/usr/local/bin/emacs -nw"
+> $ ./osx_emacs25-nox.sh 
+> $ alias emacs="/usr/local/bin/emacs -nw"
 
 ## openssl-1.0.1i
-- ./openssl.sh
+> $ ./openssl.sh
 
 ## ruby
-- ./ruby.sh
+> $ ./ruby.sh
 
 ## vagrant
-- vagrant binary install from web.
- - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5.dmg
-- virtualbox binary install from web.
- - wget http://download.virtualbox.org/virtualbox/4.3.16/VirtualBox-4.3.16-95972-OSX.dmg
-- vagrant init centos-6-x64 http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210.box
-- vagrant up
- - start virtual machine
-- vagrant ssh
- - connect virtual machine
-- vagrant halt
- - vagrant service stop
- 
-
+> $ ./vagrant.sh
 
 2. download source code
  - gcc required three other libraries: GMP, MPFR, MPC, isl
