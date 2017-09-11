@@ -29,12 +29,10 @@ cd openssl-$OPENSSL
 
 # build
 echo "build openssl-${OPENSSL}"
-make bootstrap -j4
+make -j4
 
 # install 
 echo "Installing openssl-${OPENSSL}"
 sudo make install -j4
 
-cd ../../ && rm -fr $BUILD_DIR && echo "openssl install complete !!!"
-
-
+cd ../../ && rm -fr $BUILD_DIR && sudo rm /usr/bin/openssl && sudo ln -s /usr/local/ssl/bin/openssl /usr/bin/openssl | echo "openssl install complete !!!"
