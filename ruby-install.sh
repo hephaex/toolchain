@@ -8,8 +8,8 @@
 BUILD_DIR=obj
 
 # you'd like to build version of ruby
-#RUBY=2.4.1
-RUBY=$(curl -fL https://ftp.ruby-lang.org/pub/ruby/ |grep -E "ruby.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $2}' |sed 's/ruby-//g' |sed 's/.tar.gz//g' |sort |tail -n 1)
+RUBY=2.3.4
+#RUBY=$(curl -fL https://ftp.ruby-lang.org/pub/ruby/ |grep -E "ruby.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $2}' |sed 's/ruby-//g' |sed 's/.tar.gz//g' |sort |tail -n 1)
 
 mkdir -p $BUILD_DIR
 echo 'make dir {$BUILD_DIR}' && rm -fr $BUILD_DIR && mkdir $BUILD_DIR && cd $BUILD_DIR 
@@ -31,5 +31,5 @@ make -j4
 echo "Installing ruby-${RUBY}"
 sudo make install -j4
 [ $? -eq 0 ] && INSTALL_ERROR=0 && ruby --version
-[ $INSTALL_ERROR -eq 0 ] && cd ../../ rm -fr $BUILD_DIR && echo "ruby install complete !!!"
+[ $INSTALL_ERROR -eq 0 ] && cd ../../ && rm -fr $BUILD_DIR && echo "ruby install complete !!!"
 
