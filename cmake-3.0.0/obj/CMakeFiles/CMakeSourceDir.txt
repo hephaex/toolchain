@@ -1,1 +1,0 @@
-/Users/mscho/Simon/Tools/cmake-3.0.0
