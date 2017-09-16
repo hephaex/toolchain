@@ -1,5 +1,0 @@
-sockets.o: ../../lib/sockets.c ../src/config.h ../../lib/sockets.h
-
-../src/config.h:
-
-../../lib/sockets.h:
