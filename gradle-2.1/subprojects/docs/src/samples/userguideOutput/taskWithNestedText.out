@@ -1,6 +1,0 @@
-:hello
-[ant:echo] hello from Ant
-
-BUILD SUCCESSFUL
-
-Total time: 1 secs

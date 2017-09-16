@@ -1,9 +1,0 @@
-tasks.withType(JavaCompile) {
-    options.encoding = 'utf-8'
-    options.compilerArgs = ['-Xlint:-options']
-}
-tasks.withType(GroovyCompile) {
-    options.encoding = 'utf-8'
-    options.compilerArgs = ['-Xlint:-options']
-    groovyOptions.encoding = 'utf-8'
-}

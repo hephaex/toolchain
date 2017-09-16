@@ -1,6 +1,0 @@
-${original}
-
-test {
-    useTestNG()
-    maxParallelForks = 2
-}

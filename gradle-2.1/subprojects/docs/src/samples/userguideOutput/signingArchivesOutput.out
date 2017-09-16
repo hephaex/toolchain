@@ -1,9 +1,0 @@
-:compileJava
-:processResources
-:classes
-:jar
-:signArchives
-
-BUILD SUCCESSFUL
-
-Total time: 1 secs

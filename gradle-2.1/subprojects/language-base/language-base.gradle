@@ -1,9 +1,0 @@
-dependencies {
-    compile libraries.groovy
-    compile project(":core")
-}
-
-useClassycle()
-useTestFixtures()
-useTestFixtures(sourceSet: 'testFixtures')
-

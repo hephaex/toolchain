@@ -1,1 +1,0 @@
-<% subprojects.each { out.println "include '$it'"} %>
