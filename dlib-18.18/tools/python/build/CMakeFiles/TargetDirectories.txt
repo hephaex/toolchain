@@ -1,2 +1,0 @@
-/Users/mscho/Simon/91_toolchain/dlib-18.18/tools/python/build/dlib_build/CMakeFiles/dlib.dir
-/Users/mscho/Simon/91_toolchain/dlib-18.18/tools/python/build/CMakeFiles/dlib_.dir
