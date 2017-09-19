@@ -15,7 +15,8 @@ cd $BUILD_DIR
 
 # you'd like to build version of emacs
 #OpenSSL=1.0.21
-OPENSSL=$(curl -fL http://openssl.skazkaforyou.com/source/ | grep -E "openssl.*tar.gz" | grep -vE "sha|asc|fips" | awk -F \" '{print $7}' | sed 's/openssl-//g' | sed 's/.tar.gz<//g' | sed 's/>//g' |sed 's/ .*$//g'|sed 's/..$//g'|sort -r | tail -n 1)
+OPENSSL=$(curl -fL https://www.openssl.org/source/ | grep -E "openssl.*tar.gz" |grep -vE "fips" | awk -F \" '{print $2}' | sed 's/openssl-//g' |sed 's/.tar.gz//g' |tail -n 1)
+
 #curl -fL http://openssl.skazkaforyou.com/source/ | grep -E "openssl.*tar.gz" | grep -vE "sha|asc|fips" | awk -F \" '{print $7}' | sed 's/openssl-//g' | sed 's/.tar.gz//g' | sort -r | tail -n 1)
 
 # pull emacs source archive
@@ -25,7 +26,7 @@ curl -fL http://openssl.skazkaforyou.com/source/openssl-$OPENSSL.tar.gz | tar zx
 cd openssl-$OPENSSL
 
 # configure Makefile
-./Configure darwin64-x86_64-cc
+sudo ./config --prefix=/usr/local/openssl-1.1.0f
 
 # build
 echo "build openssl-${OPENSSL}"
@@ -35,4 +36,4 @@ make -j4
 echo "Installing openssl-${OPENSSL}"
 sudo make install -j4
 
-cd ../../ && rm -fr $BUILD_DIR && sudo rm /usr/bin/openssl && sudo ln -s /usr/local/ssl/bin/openssl /usr/bin/openssl | echo "openssl install complete !!!"
+cd ../../ && sudo rm -fr $BUILD_DIR && sudo ln -s /usr/local/openssl-1.1.0f/bin/openssl /usr/bin/openssl | echo "openssl install complete !!!"
