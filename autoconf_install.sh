@@ -19,7 +19,6 @@ mkdir -p $BUILD_DIR && cd $BUILD_DIR
 
 # Autoconf
 echo && echo "Installing the latest autoconf...\n"
-#curl -fL http://ftpmirror.gnu.org/autoconf/autoconf-latest.tar.gz | tar xzf -
 curl -fL http://ftpmirror.gnu.org/autoconf/autoconf-${AUTOCONF_VERSION}.tar.gz | tar xzf -
 cd autoconf-*
 ./configure --prefix=/usr/local
