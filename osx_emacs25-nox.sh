@@ -18,7 +18,7 @@ cd $BUILD_DIR
 echo "fetch emacs-${EMACS}"
 curl -fL http://ftpmirror.gnu.org/emacs/emacs-$EMACS.tar.gz | tar zxf -
 # pull emacs patch file which no title bar & unflicker on terminal env.
-curl -LO https:/github.com/hephaex/toolchain/raw/master/emacs-25.x.patch/emacs-25.2-OSX-no_title_bar.patch 
+curl -LO https://github.com/hephaex/toolchain/raw/master/emacs-25.x.patch/emacs-25.2-OSX-no_title_bar.patch 
 curl -LO https://github.com/hephaex/toolchain/raw/master/emacs-25.x.patch/emacs-25.2-OSX-unflicker.patch
 
 # patch
