@@ -1,7 +1,7 @@
 Toolchain
 =========
 
-OSX opensource toolchain
+OSX opensource high sierra toolchain
 
 ## prerequirement
 1. xcode install
@@ -18,7 +18,6 @@ OSX opensource toolchain
 > $ alias emacs="/usr/local/bin/emacs -nw"
 
 
-
 ## openssl-1.0.1i
 > $ ./openssl.sh
 
@@ -27,4 +26,3 @@ OSX opensource toolchain
 
 ## vagrant
 > $ ./vagrant.sh
-
