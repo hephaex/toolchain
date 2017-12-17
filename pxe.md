@@ -3,6 +3,7 @@
 
 ## ssh key generate
 - ssh-keygen -t rsa
+
  
 * mv ~/.ssh/id_rsa authrized_keys
 
