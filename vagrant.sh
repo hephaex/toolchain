@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Vagrant Install script from source on OSX 10.12.6
-# Date: 1.0 11.Sep.2017
+# Date: 1.0 18.Dec.2017
 # Maintain by Mario Cho <hephaex@gmail.com>
 
 # wherever you'd like to build
@@ -26,4 +26,3 @@ git clone https://github.com/mitchellh/vagrant.git && cd vagrant
 # install vagrant
 bundle install && [ $? -eq 0 ] && INSTALL_ERROR=0
 [ $INSTALL_ERROR -eq 0 ] && cd ../../ && rm -fr $BUILD_DIR && echo "vagrant install complete !!!"
-
