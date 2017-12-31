@@ -3,7 +3,7 @@ Toolchain
 
 OSX opensource high sierra toolchain
 
-## prerequirement
+## prerequirement toolchain
 1. xcode install
 > $ xcode-select --install
 
@@ -13,7 +13,7 @@ OSX opensource high sierra toolchain
 ## autoconf & automake & libtool & texinfo
 > $ ./autoconf_install.sh
 
-## emacs 25.2.1 no-x-windows
+## emacs 25.2.x no-x-windows
 > $ ./osx_emacs25-nox.sh
 > $ alias emacs="/usr/local/bin/emacs -nw"
 
@@ -27,7 +27,7 @@ OSX opensource high sierra toolchain
 ## vagrant
 > $ ./vagrant.sh
 
-## Virtualbox
+## Virtualbox (for Linux Enviroment.)
 * get virtual-box 5.2.x image
 > $ wget http://download.virtualbox.org/virtualbox/5.2.4/virtualbox-5.2_5.2.4-11978$
 * get virtual-box 5.2.x extention pack
