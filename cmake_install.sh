@@ -17,8 +17,6 @@ cd $BUILD_DIR
 echo "fetch source cmake"
 git clone https://gitlab.kitware.com/cmake/cmake.git && cd cmake
 
-
-# install cmakeundle install && [ $? -eq 0 ] && INSTALL_ERROR=0
+# build && [ $? -eq 0 ] && INSTALL_ERROR=0
 ./bootstrap && make && sudo make install
 cd ../../ && rm -fr $BUILD_DIR && echo "cmake install complete !!!"
-
