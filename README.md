@@ -7,7 +7,7 @@ OSX opensource high sierra toolchain
 1. xcode install
 > $ xcode-select --install
 
-# cmake
+# cmake install
 > $ ./cmake_install.sh
 
 ## autoconf & automake & libtool & texinfo
