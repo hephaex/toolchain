@@ -65,6 +65,6 @@ fi
 function add_path () {
     [[ ":${PATH}:" =~ .*:$1:.* ]] || PATH="${PATH:+${PATH}:}$1"
 }
-
+# check
 [ $AUTOCONF_ERROR -eq 0 ] && [ $AUTOMAKE_ERROR -eq 0 ] && [ $LIBTOOL_ERROR -eq 0 ] && [ $TEXINFO_ERROR -eq 0 ] && echo "Installation complete." && cd .. && rm -fr $BUILD_DIR
 
