@@ -61,7 +61,6 @@ fi
 if [ $TEXINFO_ERROR -ne 0 ]; then
   echo "Texinfo error."
 fi
-
 function add_path () {
     [[ ":${PATH}:" =~ .*:$1:.* ]] || PATH="${PATH:+${PATH}:}$1"
 }
