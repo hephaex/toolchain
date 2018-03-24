@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # Emacs build script for OSX 10.12.6 
 # Maintain by Mario Cho <hephaex@gmail.com>
 
@@ -9,7 +8,6 @@ BUILD_DIR=obj
 # you'd like to build version of emacs
 #EMACS=25.3.x
 EMACS=$(curl -fL http://ftpmirror.gnu.org/emacs | grep -E "emacs.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $5}' | sed 's/>emacs-//g' |sed 's/lisp//g' | sed 's/.tar.gz//g' | sed 's; .*$;;'| sed 's/............$//' |  sort | tail -n 1)
-
 
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
