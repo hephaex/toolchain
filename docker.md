@@ -24,6 +24,7 @@ Docker
   * [centos](https://hub.docker.com/_/centos/)
   * [elasticsearch](https://hub.docker.com/_/elasticsearch/)
   * [httpd](https://hub.docker.com/_/httpd/)
+  
   * jenkins
     * [Combining Jenkins and Docker for Continuously Running Instances](http://www.focusedsupport.com/blog/beyond-builds-combining-jenkins-and-docker-for-continuously-running-instances/)
   * [mysql-server](https://hub.docker.com/r/mysql/mysql-server/)
@@ -43,7 +44,7 @@ Docker
   * [ubuntu](https://hub.docker.com/_/ubuntu/)
     * [Encoding Problems when running an app in docker (Python, Java, Ruby, …) with Ubuntu Containers (ascii, utf-8)](https://stackoverflow.com/questions/27931668/encoding-problems-when-running-an-app-in-docker-python-java-ruby-with-u/27931669)
 
-      ```
+ ```
       FROM ubuntu:latest
 
       RUN apt-get update -y && apt-get install -y ... locales
