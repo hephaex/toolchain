@@ -1,5 +1,5 @@
 #!/bin/sh
-# Emacs build script for OSX 10.12.6 
+# Emacs build script for OSX 10.13.5
 # Maintain by Mario Cho <hephaex@gmail.com>
 
 # wherever you'd like to build
