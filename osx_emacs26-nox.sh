@@ -1,5 +1,5 @@
 #!/bin/sh
-# Emacs build script for OSX 10.12.6
+# Emacs build script for OSX 10.13.5
 # Maintain by Mario Cho <hephaex@gmail.com>
 
 # wherever you'd like to build
@@ -15,13 +15,15 @@ cd $BUILD_DIR
 # pull emacs source archive
 echo "fetch emacs-${EMACS}"
 curl -fL http://ftpmirror.gnu.org/emacs/emacs-$EMACS.tar.gz | tar zxf -
+
 # pull emacs patch file which no title bar & unflicker on terminal env.
 curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/emacs-20170905-inline.patch.gz
 
 # patch
 cd ./emacs-$EMACS
-gunzip emacs-20170905-inline.patch.gz
+gunzip ../emacs-20170905-inline.patch.gz
 patch -p1 < ../emacs-25.2-OSX-no_title_bar.patch
+rm ../emacs-20170905-inline.patch.gz
 sleep 5
 
 # configure Makefile
