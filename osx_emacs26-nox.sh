@@ -16,16 +16,6 @@ cd $BUILD_DIR
 echo "fetch emacs-${EMACS}"
 curl -fL http://ftpmirror.gnu.org/emacs/emacs-$EMACS.tar.gz | tar zxf -
 
-# pull emacs patch file which no title bar & unflicker on terminal env.
-curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/emacs-20170905-inline.patch.gz
-
-# patch
-cd ./emacs-$EMACS
-gunzip ../emacs-20170905-inline.patch.gz
-patch -p1 < ../emacs-25.2-OSX-no_title_bar.patch
-rm ../emacs-20170905-inline.patch.gz
-sleep 5
-
 # configure Makefile
 ./autogen.sh
 ./configure --without-x --with-ns --with-modules
