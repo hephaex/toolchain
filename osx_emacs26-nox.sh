@@ -1,5 +1,5 @@
 #!/bin/sh
-# Emacs build script for OSX 10.12.6
+# Emacs build script for OSX 10.13.5
 # Maintain by Mario Cho <hephaex@gmail.com>
 
 # wherever you'd like to build
@@ -15,8 +15,11 @@ cd $BUILD_DIR
 # pull emacs source archive
 echo "fetch emacs-${EMACS}"
 curl -fL http://ftpmirror.gnu.org/emacs/emacs-$EMACS.tar.gz | tar zxf -
+<<<<<<< HEAD
 # pull emacs patch file which no title bar & unflicker on terminal env.
 curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/emacs-20170905-inline.patch.gz
+=======
+>>>>>>> def53d152674c99755ea168918eda00454b7a29c
 
 # configure Makefile
 ./autogen.sh
