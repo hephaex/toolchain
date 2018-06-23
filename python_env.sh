@@ -34,12 +34,12 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile
 exec "$SHELL"
 
 # virtualenv install
-cd $BUILD_DIR
-curl -O https://pypi.python.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz
-tar xvfz virtualenv-*
-cd virtual*
-sudo python3 setup.py install && [ $? -eq 0 ] && INSTALL_ERROR=0
-[ $INSTALL_ERROR -eq 0 ] && cd ../../ && sudo rm -fr $BUILD_DIR && echo "Python env install complete !!!"
+#cd $BUILD_DIR
+##curl -O https://pypi.python.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz
+#tar xvfz virtualenv-*
+#cd virtual*
+#sudo python3 setup.py install && [ $? -eq 0 ] && INSTALL_ERROR=0
+#[ $INSTALL_ERROR -eq 0 ] && cd ../../ && sudo rm -fr $BUILD_DIR && echo "Python env install complete !!!"
 
 # fetch source
 #echo "fetch source CPython"
