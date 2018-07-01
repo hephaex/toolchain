@@ -18,12 +18,12 @@ echo "fetch emacs-${EMACS}"
 curl -fL http://ftpmirror.gnu.org/emacs/emacs-$EMACS.tar.gz | tar zxf -
 
 # pull emacs patch file which no title bar & unflicker on terminal env.
-curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/emacs-25.2-inline-googleime.patch
+curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/emacs-26.x-inline-googleime.patch
 curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/ns-private.patch
 
 tar zxvf emacs-$EMACS.tar.gz
 cd ./emacs-$EMACS
-patch -p1 < ./emacs-25.2-inline-googleime.patch
+patch -p1 < ./emacs-26.x-inline-googleime.patch
 patch -p1 < ./ns-private.patch
 sleep 5
 
