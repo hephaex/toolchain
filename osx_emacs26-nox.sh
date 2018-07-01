@@ -11,6 +11,7 @@ EMACS=$(curl -fL http://ftpmirror.gnu.org/emacs | grep -E "emacs.*tar.gz" | grep
 
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
+pwd
 
 # pull emacs source archive
 echo "fetch emacs-${EMACS}"
@@ -22,8 +23,8 @@ curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/ns-pr
 
 tar zxvf emacs-$EMACS.tar.gz
 cd ./emacs-$EMACS
-patch -p1 < ../emacs-26.x.patch/emacs-25.2-inline-googleime.patch
-patch -p1 < ../emacs-26.x.patch/ns-private.patch
+patch -p1 < ./emacs-25.2-inline-googleime.patch
+patch -p1 < ./ns-private.patch
 sleep 5
 
 # configure Makefile
