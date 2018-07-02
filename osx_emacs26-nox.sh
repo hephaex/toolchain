@@ -11,26 +11,24 @@ EMACS=$(curl -fL http://ftpmirror.gnu.org/emacs | grep -E "emacs.*tar.gz" | grep
 
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
-pwd
 
 # pull emacs source archive
 echo "fetch emacs-${EMACS}"
 curl -fL http://ftpmirror.gnu.org/emacs/emacs-$EMACS.tar.gz | tar zxf -
+cd emacs-$EMACS
 
 # pull emacs patch file which no title bar & unflicker on terminal env.
 curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/emacs-26.x-inline-googleime.patch
 curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/ns-private.patch
-
-tar zxvf emacs-$EMACS.tar.gz
-cd ./emacs-$EMACS
 patch -p1 < ./emacs-26.x-inline-googleime.patch
 patch -p1 < ./ns-private.patch
+#tar zxvf emacs-$EMACS.tar.gz
 sleep 5
 
 # configure Makefile
 ./autogen.sh
 #./configure --without-x --with-ns --with-modules
-./configure CC=clang --without-x --with-ns --with-modules --with-imagemagick
+./configure CC=clang --without-x --with-gnutls=no --with-ns --with-modules --with-imagemagick
 
 # build
 echo "build emacs-${EMACS}"
@@ -41,5 +39,5 @@ echo "Installing emacs-${EMACS}"
 make install -j4
 
 [ $? -eq 0 ] && EMACS_ERROR=0 && cp -R ./nextstep/Emacs.app /Applications/.
-[ $EMACS_ERROR -eq 0 ] && cd ../../ && rm -fr $BUILD_DIR && echo "emacs install complete !!!"
+#[ $EMACS_ERROR -eq 0 ] && cd ../../ && rm -fr $BUILD_DIR && echo "emacs install complete !!!"
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
