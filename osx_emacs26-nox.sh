@@ -36,6 +36,7 @@ make bootstrap -j4
 echo "Installing emacs-${EMACS}"
 make install -j4
 
+# ckeck error & link
 [ $? -eq 0 ] && EMACS_ERROR=0 && cp -R ./nextstep/Emacs.app /Applications/.
 [ $EMACS_ERROR -eq 0 ] && cd ../../ && rm -fr $BUILD_DIR && echo "\n*** emacs install complete !!!"
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
