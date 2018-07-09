@@ -239,8 +239,7 @@ function build_tensorflow() {
   log_app_msg "Done."
 }
 
-function main()
-{
+function main() {
     create_tempdir
     build_bazel
     toolchain
