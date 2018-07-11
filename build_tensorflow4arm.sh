@@ -16,7 +16,7 @@ source "${DIR}/patch.sh"
 RED='\033[0;31m'
 BLUE='\033[1;36m'
 NC='\033[0m'
-TF_PYTHON_VERSION=${TF_PYTHON_VERSION:-"3.5"}
+TF_PYTHON_VERSION=${TF_PYTHON_VERSION:-"3.6"}
 TF_VERSION=${TF_VERSION:-"v1.9.0"}
 BAZEL_VERSION=${BAZEL_VERSION:-"0.11.1"}
 TF_GIT_URL=${TF_GIT_URL:-"https://github.com/tensorflow/tensorflow"}
