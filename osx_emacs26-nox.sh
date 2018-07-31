@@ -2,6 +2,7 @@
 # Emacs build script for OSX 10.13.5
 # Maintain by Mario Cho <hephaex@gmail.com>
 
+# git log test 
 # wherever you'd like to build
 BUILD_DIR=obj
 
@@ -28,7 +29,7 @@ sleep 5
 # configure Makefile
 ./autogen.sh
 #./configure --without-x --with-ns --with-modules
-./configure CC=clang --without-x --with-gnutls=no --with-ns --with-modules --with-imagemagick
+./configure CC=clang --without-x --with-gnutls=yes --with-ns --with-modules --with-imagemagick
 
 # build
 echo "build emacs-${EMACS}"
