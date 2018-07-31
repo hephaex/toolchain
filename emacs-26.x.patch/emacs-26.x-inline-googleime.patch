@@ -867,7 +867,8 @@ diff -crN emacs-25.2_orig/src/macim.m emacs-25.2/src/macim.m
 + int mac_pass_key_to_system (int code, int modifiers);
 + int mac_pass_key_directly_to_emacs ();
 + int mac_store_change_input_method_event ();
-+     
++ 
++
 + DEFUN ("mac-input-source-is-ascii-capable", Fmac_input_source_is_ascii_capable, Smac_input_source_is_ascii_capable,
 +        0, 0, 0,
 +        doc: /* Is current input source ascii capable? */)

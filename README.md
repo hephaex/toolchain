@@ -13,8 +13,8 @@ OSX opensource high sierra toolchain
 ## autoconf & automake & libtool & texinfo
 > $ ./autoconf_install.sh
 
-## emacs 25.2.x no-x-windows
-> $ ./osx_emacs25-nox.sh
+## emacs 26.1.x no-x-windows
+> $ ./osx_emacs26-nox.sh
 > $ alias emacs="/usr/local/bin/emacs -nw"
 
 
