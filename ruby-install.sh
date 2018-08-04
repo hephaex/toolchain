@@ -12,7 +12,7 @@ RUBY=2.5.1
 #RUBY=$(curl -fL https://ftp.ruby-lang.org/pub/ruby/ |grep -E "ruby.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $2}' |sed 's/ruby-//g' |sed 's/.tar.gz//g' |sort |tail -n 1)
 
 
-echo 'make dir {$BUILD_DIR}' && \
+echo 'make dir ${BUILD_DIR}' && \
     mkdir -p $BUILD_DIR && \
     rm -fr $BUILD_DIR && \
     mkdir $BUILD_DIR && \
@@ -24,7 +24,11 @@ echo "fetch ruby-${RUBY}" && \
 
 # configure Makefile
 cd ./ruby-$RUBY && \
-    ./configure --with-openssl-dir=/usr/local/openssl
+    ./configure --prefix=/usr/local \
+		--with-openssl-dir=/usr/local/share/openssl \
+		--with-readline-dir=/usr/local/share/readline \
+		LDFLAGS="-L/usr/local/share/openssl/lib -L/usr/local/lib" \
+		CPPFLAGS="-I/usr/local/share/openssl/include -I/usr/local/share/include/readline"
 
 # build
 echo "build ruby-${RUBY}" && \
@@ -32,7 +36,7 @@ echo "build ruby-${RUBY}" && \
 
 # install 
 echo "Installing ruby-${RUBY}" && \
-    sudo make install -j4
+    make install -j4
 [ $? -eq 0 ] && INSTALL_ERROR=0 && ruby --version
 [ $INSTALL_ERROR -eq 0 ] && cd ../../ && rm -fr $BUILD_DIR && echo "ruby install complete !!!"
 
