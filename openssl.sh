@@ -24,7 +24,7 @@ echo "fetch OpenSSL-${OPENSSL}" && \
 cd openssl-$OPENSSL
 
 # configure Makefile
-sudo ./config --prefix=/usr/local/openssl-$OPENSSL
+./config --prefix=/usr/local/share/openssl-$OPENSSL
 
 # build
 echo "build openssl-${OPENSSL}" && \
@@ -32,10 +32,10 @@ echo "build openssl-${OPENSSL}" && \
 
 # install 
 echo "Installing openssl-${OPENSSL}" && \
-    sudo make install -j4
+    make install -j4
 
 echo "System Env. Configuration openssl-${OPENSSL}" && \
     sudo rm -f /usr/bin/openssl && \
     cd ../../ && \
-    sudo rm -fr $BUILD_DIR && \
-    sudo ln -s /usr/local/openssl-$OPENSSL/bin/openssl /usr/bin/openssl | echo "openssl install complete !!!"
+    rm -fr $BUILD_DIR && \
+    sudo ln -s /usr/local/share/openssl-$OPENSSL/bin/openssl /usr/bin/openssl | echo "openssl install complete !!!"
