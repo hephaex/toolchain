@@ -17,7 +17,7 @@ echo "Installing readline-${READLINE}" && \
 
 echo "build readline-${READLINE}" && \
     cd readline-${READLINE} && \
-    ./configure --prefix=/usr/local/share && \
+    ./configure --prefix=/usr/local && \
     make && \
     make install
 
