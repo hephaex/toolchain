@@ -38,4 +38,5 @@ echo "System Env. Configuration openssl-${OPENSSL}" && \
     sudo rm -f /usr/bin/openssl && \
     cd ../../ && \
     rm -fr $BUILD_DIR && \
+    sudo ln -s /usr/local/share/openssl-$OPENSSL /usr/local/share/openssl \
     sudo ln -s /usr/local/share/openssl-$OPENSSL/bin/openssl /usr/bin/openssl | echo "openssl install complete !!!"
