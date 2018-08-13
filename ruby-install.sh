@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # Ruby build script for OSX 10.12.6 or higher
 # Date: 03.Aug.2018
 # Maintain by Mario Cho <hephaex@gmail.com>
@@ -8,6 +7,8 @@
 BUILD_DIR=obj
 
 # you'd like to build version of ruby
+# TypeMe! of Ruby version
+# ex) 2.5.1
 RUBY=2.5.1
 
 echo 'make dir ${BUILD_DIR}' && \
