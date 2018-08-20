@@ -13,15 +13,6 @@
 	 (getenv "PATH")
 	 ))
 
-(defun set-exec-path-from-shell-PATH ()
-  (let ((path-from-shell (replace-regexp-in-string
-                          "[ \t\n]*$"
-                          ""
-                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setq eshell-path-env path-from-shell) ; for eshell users
-    (setq exec-path (split-string path-from-shell path-separator))))
-
 ;;(require 'ms-ui)
 ;; 줄 번호 출력
 (add-hook 'find-file-hook (lambda () (linum-mode t)))
@@ -41,19 +32,10 @@
 ;(ms-ui-load-theme 'solarized-light)
 ;(ms-ui-load-theme 'zenburn)
 
-;; ;; Turn off early to avoid momentary display.
-;; (mapc
-;;  (lambda (mode)
-;;    (if (fboundp mode)
-;;        (funcall mode -1)))
-;;  '(menu-bar-mode tool-bar-mode scroll-bar-mode))
-
 ;; remove the tool-bar
 ;;(when window-system (tool-bar-mode -1))
 
 (set-default 'cursor-type 'box)
-
-
 
 ;; for iswitchb
 (defun iswitchb-local-keys ()
@@ -78,34 +60,7 @@
 
 ;; ANSI colors for the Emacs Shell(eshell)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
-(add-hook 'c-mode-hook
-	  (function
-	   (lambda nil
-	     (if (string-match "llvm" buffer-file-name)
-		 (progn
-		   (c-set-style "llvm.org")
-		   )
-	       ))))
-(add-hook 'c++-mode-hook
-	  (function
-	   (lambda nil
-	     (if (string-match "llvm" buffer-file-name)
-		 (progn
-		   (c-set-style "llvm.org")
-		   )
-	       ))))
  
-;; ANSI colors for the compilation mode
-;(add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
-
-;; java mode hook
-;(add-hook 'java-mode-hook
-;          (lambda ()
-;            (setq c-basic-offset 4
-;                  tab-width 4
-;                  indent-tabs-mode nil)))
-
 ;; make-regexp
 ;(autoload 'make-regexp "make-regexp"
 ;  "Return a regexp to match a string item in STRINGS.")
@@ -139,24 +94,8 @@
   (save-excursion
     (hs-show-block)))
 
-; emacs lisp mode
-;(defun goldmund-emacs-lisp-mode-init ()
-;  (interactive)
-;  (imenu-add-to-menubar "Functions")
-;  (define-key emacs-lisp-mode-map [f6] 'eval-buffer)
-;  (define-key emacs-lisp-mode-map [(meta f6)] 'emacs-lisp-byte-compile-and-load)
-;  (define-key emacs-lisp-mode-map [return] 'newline-and-indent)
-;  ;; (define-key emacs-lisp-mode-map [?\C-c?t] 'xsteve-trace-function)
-;  (modify-syntax-entry ?- "w")
-;  (hs-minor-mode t)
-;  (turn-on-eldoc-mode))
-
-;(add-hook 'emacs-lisp-mode-hook 'goldmund-emacs-lisp-mode-init)
-;(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
-;(add-hook 'emacs-lisp-mode-hook (lambda () (setq indent-tabs-mode nil)))
-
 ;; ediff
-;(setq ediff-split-window-function 'split-window-vertically)
+(setq ediff-split-window-function 'split-window-vertically)
 
 
 (global-set-key "\C-cl" 'org-store-link)
