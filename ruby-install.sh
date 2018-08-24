@@ -1,6 +1,5 @@
 #!/bin/sh
-
-# Ruby build script for OSX 10.12.6
+# Ruby build script for OSX 10.12.6 or higher
 # Date: 03.Aug.2018
 # Maintain by Mario Cho <hephaex@gmail.com>
 
@@ -8,9 +7,9 @@
 BUILD_DIR=obj
 
 # you'd like to build version of ruby
+# TypeMe! of Ruby version
+# ex) 2.5.1
 RUBY=2.5.1
-#RUBY=$(curl -fL https://ftp.ruby-lang.org/pub/ruby/ |grep -E "ruby.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $2}' |sed 's/ruby-//g' |sed 's/.tar.gz//g' |sort |tail -n 1)
-
 
 echo 'make dir ${BUILD_DIR}' && \
     mkdir -p $BUILD_DIR && \
@@ -39,4 +38,3 @@ echo "Installing ruby-${RUBY}" && \
     make install -j4
 [ $? -eq 0 ] && INSTALL_ERROR=0 && ruby --version
 [ $INSTALL_ERROR -eq 0 ] && cd ../../ && rm -fr $BUILD_DIR && echo "ruby install complete !!!"
-
