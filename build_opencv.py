@@ -9,8 +9,8 @@ def clone_if_not_exists(name, url, **kwargs):
 
 def build_opencv():
     sh.pip.install("numpy")
-    clone_if_not_exists("opencv", "https://github.com/PolarNick239/opencv.git", branch="stable_3.4.1")
-    clone_if_not_exists("opencv_contrib", "https://github.com/PolarNick239/opencv_contrib.git", branch="stable_3.4.1")
+    clone_if_not_exists("opencv", "https://github.com/PolarNick239/opencv.git", branch="stable_2.4.12")
+    clone_if_not_exists("opencv_contrib", "https://github.com/PolarNick239/opencv_contrib.git", branch="stable_2.4.12")
     sh.rm("-rf", "build")
     sh.mkdir("build")
     sh.cd("build")
