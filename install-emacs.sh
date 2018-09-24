@@ -31,7 +31,7 @@ echo "*** patch emacs-${EMACS}" && \
 # configure Makefile
 echo "*** configuration ***" && \
     ./autogen.sh && \
-    ./configure CC=clang --without-x --with-gnutls=yes --with-ns --with-modules --with-imagemagick
+    ./configure CC=clang --without-x --with-ns 
 
 # build
 echo "*** build emacs-${EMACS} ***" && \
