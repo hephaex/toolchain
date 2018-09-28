@@ -29,6 +29,7 @@ echo "*** patch emacs-${EMACS}" && \
     sleep 5
 
 # configure Makefile
+# osx: clang, linux: gcc    
 echo "*** configuration ***" && \
     ./autogen.sh && \
     ./configure CC=clang --without-x --with-ns 
