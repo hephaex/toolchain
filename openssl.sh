@@ -14,7 +14,7 @@ fi
 cd $BUILD_DIR 
 
 # you'd like to build version of emacs
-#OpenSSL=1.1.0h
+#OpenSSL=1.1.0g
 OPENSSL=$(curl -fL https://www.openssl.org/source/ | grep -E "openssl.*tar.gz" |grep -vE "fips" | awk -F \" '{print $2}' | sed 's/openssl-//g' |sed 's/.tar.gz//g' |tail -n 1)
 
 # pull emacs source archive
