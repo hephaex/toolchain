@@ -23,7 +23,6 @@ Docker
   * [centos](https://hub.docker.com/_/centos/)
   * [elasticsearch](https://hub.docker.com/_/elasticsearch/)
   * [httpd](https://hub.docker.com/_/httpd/)
-  
   * jenkins
     * [Combining Jenkins and Docker for Continuously Running Instances](http://www.focusedsupport.com/blog/beyond-builds-combining-jenkins-and-docker-for-continuously-running-instances/)
   * [mysql-server](https://hub.docker.com/r/mysql/mysql-server/)
