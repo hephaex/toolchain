@@ -20,6 +20,7 @@ function tf_patch()
   return 0
 }
 
+
 function tf_toolchain_patch()
 {
   local CROSSTOOL_NAME="$1"
