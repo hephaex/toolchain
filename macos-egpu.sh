@@ -1,43 +1,8 @@
 #!/bin/bash
+# forked from https://github.com/learex/macOS-eGPU
+# License: https://github.com/learex/macOS-eGPU/blob/master/License.txt
 
-#   macOS-eGPU.sh
-#
-#   This script handles installation, updating and uninstallation of eGPU support for Mac.
-#   AMD and NVIDIA cards, TI82 and T83 enclosures, TB 1/2 and 3, and CUDA are supported.
-#
-#   Created by learex on 05.04.18.
-#
-#   Authors: learex
-#   Homepage: https://github.com/learex/macOS-eGPU
-#   License: https://github.com/learex/macOS-eGPU/blob/master/License.txt
-#
-#   USAGE TERMS of macOS-eGPU.sh
-#   1. You may use this script for personal use.
-#   2. You may continue development of this script at it's GitHub homepage.
-#   3. You may not redistribute this script or portions thereof from outside of it's GitHub homepage without explicit written permission.
-#   4. You may not compile, assemble or in any other way make the source code unreadable by a human.
-#   5. You may not implement this script or portions thereof into other scripts and/or applications without explicit written permission.
-#   6. You may not use this script, or portions thereof, for any commercial purposes.
-#   7. You accept the license terms of all downloaded and/or executed content, even content that has only indirectly been been downloaded and/or executed by macOS-eGPU.sh.
-#
-#   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-#   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-#   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-#   THE SOFTWARE.
-
-
-
-
-#   beginning of the script
-#   It is forbidden to execute any code until the very last subroutine. The only execption is to parse incoming options.
-#   Global variables are created as needed.
-
-
-#   script specific information
-branch="master"
+ranch="master"
 warningOS="10.13.7"
 currentOS="10.13.6"
 gitPath="https://raw.githubusercontent.com/learex/macOS-eGPU/""$branch"
