@@ -8,7 +8,7 @@ BUILD_DIR=obj
 # you'd like to build version of emacs
 #EMACS=26.1.x
 
-echo "*** fetch emacs lastest version" && \
+echo "*** fetch emacs  lastest version" && \
     EMACS=$(curl -fL http://ftpmirror.gnu.org/emacs | grep -E "emacs.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $4}' | sed 's/>emacs-//g' |sed 's/lisp//g' | sed 's/.tar.gz//g' | sed 's; .*$;;'| sed 's/............$//' |  sort | tail -n 1) && \
     echo "*** Lastest version of emacs-${EMACS}"
 
