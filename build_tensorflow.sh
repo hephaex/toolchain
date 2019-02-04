@@ -101,8 +101,8 @@ install_bazel_version `latest_release_tag "bazelbuild/bazel"`
 echo "Installing/upgrading required python packages"
 for python in "python2" "python3"; do
     ${python} -m pip install -U --user pip six numpy wheel mock scipy h5py enum34
-    ${python} -m pip install -U --user keras_applications==1.0.5 --no-deps
-    ${python} -m pip install -U --user keras_preprocessing==1.0.3 --no-deps
+    ${python} -m pip install -U --user keras_applications --no-deps
+    ${python} -m pip install -U --user keras_preprocessing --no-deps
 done
 tf_version=`latest_release_tag "tensorflow/tensorflow"`
 echo Latest TF version is $tf_version
