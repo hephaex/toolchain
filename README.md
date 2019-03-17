@@ -27,9 +27,9 @@ open source toolchain for OSX  high sierra
 > $ ./vagrant.sh
 
 ## Virtualbox (for Linux Enviroment.)
-* get virtual-box 5.2.x image
+* get virtual-box 6.0.x image
 > $ wget http://download.virtualbox.org/virtualbox/$(latest)/virtualbox-$(latest)$
-* get virtual-box 5.2.x extention pack
+* get virtual-box 6.0.x extention pack
 > $ wget http://download.virtualbox.org/virtualbox/$(latest)/Oracle_VM_VirtualBox_Exten$
 * install virtual-box 
 > $ sudo dpkg -i virtualbox-$(latest)_amd64.deb
