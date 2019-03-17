@@ -36,11 +36,11 @@ echo "*** configuration ***" && \
 
 # build
 echo "*** build emacs-${EMACS} ***" && \
-    make bootstrap -j4
+    make bootstrap -j6
 
 # install
 echo "*** Installing emacs-${EMACS} ***" && \
-    make install -j4
+    make install -j6
 
 # ckeck error & link
 [ $? -eq 0 ] && EMACS_ERROR=0 && cp -R ./nextstep/Emacs.app /Applications/.
