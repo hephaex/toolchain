@@ -17,22 +17,22 @@ echo "*** prepare ${BUILD_DIR}" && \
 
 # pull emacs source archive
 echo "*** fetch emacs-${EMACS}" && \
-    curl -fL http://ftpmirror.gnu.org/emacs/emacs-$EMACS.tar.gz | tar zxf - 
+    curl -fL http://gnu.mirrors.pair.com/emacs/emacs-${EMACS}.tar.gz  | tar zxf - 
 
 # pull emacs patch file which no title bar & unflicker on terminal env.
 echo "*** patch emacs-${EMACS}" && \
     cd emacs-$EMACS && \    
     curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/emacs-26.x-inline-googleime.patch && \
-    curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/ns-private.patch && \
+#    curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/ns-private.patch && \
     patch -p1 < ./emacs-26.x-inline-googleime.patch && \
-    patch -p1 < ./ns-private.patch && \
+#    patch -p1 < ./ns-private.patch && \
     sleep 5
 
 # configure Makefile
 # osx: clang, linux: gcc    
 echo "*** configuration ***" && \
     ./autogen.sh && \
-    ./configure CC=clang --without-x --with-ns 
+    ./configure CC=clang --without-x --with-ns --with-modules
 
 # build
 echo "*** build emacs-${EMACS} ***" && \
