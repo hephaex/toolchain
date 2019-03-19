@@ -1,45 +1,32 @@
 #!/bin/sh
-# Emacs build script for OSX 10.13.5
+# Emacs build script for OSX 10.14.x
 # Maintain by Mario Cho <hephaex@gmail.com>
 
-# wherever you'd like to build
-BUILD_DIR=obj
-
-# you'd like to build version of emacs
-#EMACS=26.1.x
-
-echo "*** fetch emacs  lastest version" && \
-    EMACS=$(curl -fL http://ftpmirror.gnu.org/emacs | grep -E "emacs.*tar.gz" | grep -vE "sig|asc" | awk -F \" '{print $4}' | sed 's/>emacs-//g' |sed 's/lisp//g' | sed 's/.tar.gz//g' | sed 's; .*$;;'| sed 's/............$//' |  sort | tail -n 1) && \
-    echo "*** Lastest version of emacs-${EMACS}"
-
-echo "*** prepare ${BUILD_DIR}" && \
-    mkdir -p $BUILD_DIR && cd $BUILD_DIR
-
-# pull emacs source archive
-echo "*** fetch emacs-${EMACS}" && \
-    curl -fL http://ftpmirror.gnu.org/emacs/emacs-$EMACS.tar.gz | tar zxf - 
+git clone git://git.sv.gnu.org/emacs.git
+curl -LO https://gist.githubusercontent.com/takaxp/5294b6c52782d0be0b25342be62e4a77/raw/9c9325288ff03a50ee26e4e32c8ca57c0dd81ace/emacs-25.2-inline-googleime.patch
 
 # pull emacs patch file which no title bar & unflicker on terminal env.
-echo "*** patch emacs-${EMACS}" && \
-    cd emacs-$EMACS && \    
-    curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/emacs-26.x-inline-googleime.patch && \
-    curl -LO https://github.com/hephaex/toolchain/blob/master/emacs-26.x.patch/ns-private.patch && \
-    patch -p1 < ./emacs-26.x-inline-googleime.patch && \
-    patch -p1 < ./ns-private.patch && \
-    sleep 5
+cd emacs
+# git reset --hard 6217746dd6
+git checkout -b emacs-26
+git reset --hard 9ad0f1d15c
+patch -p1 < ../emacs-25.2-inline-googleime.patch
+
+sleep 5
 
 # configure Makefile
 # osx: clang, linux: gcc    
 echo "*** configuration ***" && \
+    ./autogen.sh && \
     ./configure CC=clang --without-x --with-ns 
 
 # build
 echo "*** build emacs-${EMACS} ***" && \
-    make bootstrap -j6
+    make bootstrap -j4
 
 # install
 echo "*** Installing emacs-${EMACS} ***" && \
-    make install -j6
+    make install -j4
 
 # ckeck error & link
 [ $? -eq 0 ] && EMACS_ERROR=0 && cp -R ./nextstep/Emacs.app /Applications/.
