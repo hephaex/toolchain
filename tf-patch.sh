@@ -171,7 +171,6 @@ index 000000000..ccddd6d50
 +    supports_param_files = 1,
 +)
 +
-+
 +cc_toolchain(
 +  name = 'cc-compiler-armeabi',
 +  all_files = ':linaro_linux_all_files',
