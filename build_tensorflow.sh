@@ -111,6 +111,7 @@ tf_zip="${tf_dir}.zip"
 curl -L -o ${tf_zip} "https://github.com/tensorflow/tensorflow/archive/${tf_version}.zip"
 unzip ${tf_zip} -d /tmp
 cd ${tf_dir}
+# build py2 & py3
 for i in 1 2; do
     PATH="$HOME/bin/:$PATH" ./configure
     bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
