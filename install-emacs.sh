@@ -7,7 +7,7 @@
 # brew install autoconf
 # brew install makeinfo
 
-git clone git://git.sv.gnu.org/emacs.git
+git clone --depth=1 git://git.sv.gnu.org/emacs.git
 curl -LO https://gist.githubusercontent.com/takaxp/5294b6c52782d0be0b25342be62e4a77/raw/9c9325288ff03a50ee26e4e32c8ca57c0dd81ace/emacs-25.2-inline-googleime.patch
 
 # pull emacs patch file which no title bar & unflicker on terminal env.
