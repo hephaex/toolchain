@@ -1,7 +1,7 @@
 Toolchain
 =========
 
-open source toolchain for OSX  high sierra 
+open source toolchain for OSX 10.x
 
 ## prerequirement toolchain
 1. xcode install
