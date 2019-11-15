@@ -1,5 +1,5 @@
 #!/bin/sh
-# Emacs build script for OSX 10.14.x
+# Emacs build script for OSX 10.15.x
 # Maintain by Mario Cho <hephaex@gmail.com>
 
 # require dependencies 
@@ -28,11 +28,11 @@ echo "*** configuration ***" && \
 
 # build
 echo "*** build emacs-${EMACS} ***" && \
-    make bootstrap -j4
+    make bootstrap -j${nproc}
 
 # install
 echo "*** Installing emacs-${EMACS} ***" && \
-    make install -j4
+    make install -j${nproc}
 
 # ckeck error & link
 [ $? -eq 0 ] && EMACS_ERROR=0 && cp -R ./nextstep/Emacs.app /Applications/.
