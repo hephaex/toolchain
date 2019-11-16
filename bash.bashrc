@@ -8,6 +8,7 @@ cat<<mare
 mare
 echo -e "\e[0;33m"
 
+
 if [[ $EUID -eq 0 ]]; then
   cat <<WARN
 WARNING: You are running this container as root, which can cause new files in
