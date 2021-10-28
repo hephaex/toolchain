@@ -14,8 +14,7 @@ curl -LO https://gist.githubusercontent.com/takaxp/5294b6c52782d0be0b25342be62e4
 cd emacs
 # git reset --hard 6217746dd6
 
-git checkout -b emacs-26
-git reset --hard 9ad0f1d15c
+git checkout -b emacs-27
 patch -p1 < ../emacs-25.2-inline-googleime.patch
 
 sleep 5
