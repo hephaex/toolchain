@@ -26,7 +26,7 @@ def build_opencv():
         "-DBUILD_opencv_legacy=OFF",
         "-DBUILD_NEW_PYTHON_SUPPORT=ON",
         "-DBUILD_opencv_python3=ON",
-        "-DOPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.4.1/modules",
+        "-DOPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-4.3.2/modules",
         "-DBUILD_EXAMPLES=ON",
         "-DPYTHON_EXECUTABLE={}/bin/python".format(python_path),
         "-DPYTHON3_LIBRARY={}/lib/libpython{}m.so".format(python_path, version),
